@@ -42,7 +42,10 @@ class ActionService{
     fun report(){
         println("---FEEDING SCHEDULE---")
         for (animal in listAnimal){
-            println("[${animal.id}] ${animal.name} : ${animal.getFeedSchedule().joinToString(", ")}:00")
+            if (animal.getFeedSchedule().isEmpty()){
+                continue
+            }
+            println("[${animal.id}] ${animal.name} : ${animal.getFeedSchedule().joinToString(", ")}")
         }
     }
 }

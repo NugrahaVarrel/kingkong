@@ -1,27 +1,70 @@
 import service.ActionService
+import java.util.Scanner
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
+    val scanner = Scanner(System.`in`)
     val service = ActionService()
 
-    service.createData( "Singa", "mamalia", 5)
-    service.createData( "Elang", "burung", 2)
-    service.createData( "Ular", "reptil", 4)
-    service.createData("Lumba", "MAMALIA", 12)
+    while (true) {
+        println(
+            """
+            === 🐾 Kebun Binatang Menu ===
+            1. Tambah Hewan
+            2. Tambah Jadwal Pakan
+            3. Parade Suara
+            4. Laporan Pakan
+            0. Keluar
+            ------------------------------
+            Pilih menu: 
+            """.trimIndent()
+        )
 
-    service.addFeedSchedule(1, 9)
-    service.addFeedSchedule(2, 7)
-    service.addFeedSchedule(3, 10)
-    service.addFeedSchedule(5, 12)
+        when (scanner.nextInt()) {
+            1 -> {
+                scanner.nextLine() // consume newline
+                print("Masukkan kategori (mamalia/burung/reptil): ")
+                val kategori = scanner.nextLine()
 
-    println()
-    service.soundParade()
+                print("Masukkan nama: ")
+                val nama = scanner.nextLine()
 
-    println()
-    service.getAllAnimal()
+                print("Masukkan umur: ")
+                val umur = scanner.nextInt()
 
-    println()
-    service.report()
+                service.createData(nama, kategori, umur)
+                println("✅ Hewan berhasil ditambahkan!\n")
+            }
+
+            2 -> {
+                print("Masukkan ID hewan: ")
+                val id = scanner.nextInt()
+
+                print("Masukkan jam pakan: ")
+                val jam = scanner.nextInt()
+
+                service.addFeedSchedule(id, jam)
+                println("✅ Jadwal pakan ditambahkan!\n")
+            }
+
+            3 -> {
+                println()
+                service.soundParade()
+            }
+
+            4 -> {
+                println()
+                service.report()
+            }
+
+            0 -> {
+                println("👋 Keluar dari program...")
+                return
+            }
+
+            else -> println("❌ Pilihan tidak valid, coba lagi!\n")
+        }
+    }
 
 }
