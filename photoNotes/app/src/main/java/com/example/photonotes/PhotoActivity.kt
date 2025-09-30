@@ -31,9 +31,8 @@ class PhotoPickerActivity : AppCompatActivity() {
             val intent = Intent(this, SummaryActivity::class.java)
             intent.putExtra("note_title", title)
             intent.putExtra("photo_uri", dummyUrl)
-            intent.putExtra("photo_res_id", R.drawable.orangganteng) // ✅ pakai id drawable
+            intent.putExtra("photo_res_id", R.drawable.orangganteng)
             startActivity(intent)
-            finish()
         }
     }
 }
