@@ -1,0 +1,26 @@
+<resources>
+    <!-- App Info -->
+    <string name="app_name">Photo Notes</string>
+
+    <!-- MainActivity -->
+    <string name="hint_note_title">Masukkan judul catatan</string>
+    <string name="btn_add_photo">Tambah Foto</string>
+
+    <!-- PhotoPickerActivity -->
+    <string name="photo_picker_info">Simulasi memilih foto...</string>
+    <string name="btn_select_photo">Pilih Foto Dummy</string>
+
+    <!-- SummaryActivity -->
+    <string name="summary_title">Judul:</string>
+    <string name="summary_photo">Foto URI:</string>
+
+    <!-- Dummy data -->
+    <string name="sample_name">John Doe</string>
+    <string name="sample_email">john.doe@email.com</string>
+    <string name="dummy_photo_uri">content://dummy/photo_123.jpg</string>
+
+    <!-- Image description -->
+    <string name="logo_desc">App Logo</string>
+    <string name="profile_image_desc">Profile picture</string>
+    <string name="back_button_desc">Kembali</string>
+</resources>
