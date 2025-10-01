@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">taskManager</string>
+    <string-array name="sort_options">
+        <item>Priority (High → Low)</item>
+        <item>Priority (Low → High)</item>
+        <item>Status (Done → Not Done)</item>
+        <item>Status (Not Done → Done)</item>
+    </string-array>
+
+</resources>

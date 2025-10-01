@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="TaskTitle" />
+
+    <RadioGroup
+        android:id="@+id/priorityGroup"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/lowOpt"
+            android:tag="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Low" />
+
+        <RadioButton
+            android:id="@+id/mediumOpt"
+            android:tag="2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Medium" />
+
+        <RadioButton
+            android:id="@+id/highOpt"
+            android:tag="3"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="High" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="ADD TASK" />
+
+    <Button
+        android:id="@+id/filterAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="FILTER TASK" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerSort"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:entries="@array/sort_options" />-->
+
+<!--        <Switch-->
+<!--            android:id="@+id/switchShowDone"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:text="SHOW DONE" />-->
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
+        android:layout_width="match_parent"
+        android:layout_height="294dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
