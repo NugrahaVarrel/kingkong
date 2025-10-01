@@ -1,0 +1,3467 @@
+Index: ../pretest/day-1.md
+===================================================================
+diff --git a/../pretest/day-1.md b/../pretest/day-1.md
+deleted file mode 100644
+--- a/../pretest/day-1.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,202 +0,0 @@
+-### **Instructions:**
+-
+-- For **optional questions**, select the correct answer.
+-- For **short answer questions**, provide a concise response.
+-- For **yes/no questions**, simply answer “yes” or “no.”
+-- For **correct-the-code questions**, review the provided code snippet, identify the mistake, and write the corrected version.
+-
+----
+-
+-### **Pretest + Posttest Questions**
+-
+-#### **Optional (Choose the correct answer):**
+-
+-1. Which of the following is the correct way to declare a variable in Kotlin?
+-
+-   - a) `var x = 10`
+-   - b) `let x = 10`
+-   - c) `dim x as 10`
+-   - d) `declare x = 10`
+-
+-2. What keyword is used to declare a constant in Kotlin?
+-
+-   - a) `let`
+-   - b) `const`
+-   - c) `final`
+-   - d) `val`
+-
+-3. How do you define a function in Kotlin?
+-
+-   - a) `function myFunction() {}`
+-   - b) `def myFunction() {}`
+-   - c) `fun myFunction() {}`
+-   - d) `lambda myFunction() {}`
+-
+-4. What is the result of `5 % 2` in Kotlin?
+-
+-   - a) `2.5`
+-   - b) `1`
+-   - c) `0`
+-   - d) `5`
+-
+-5. Which data type in Kotlin represents a true or false value?
+-   - a) `Int`
+-   - b) `String`
+-   - c) `Boolean`
+-   - d) `Float`
+-
+----
+-
+-#### **Short Answer:**
+-
+-6. What is the difference between `var` and `val` in Kotlin?
+-
+-7. How do you create a list in Kotlin?
+-
+-8. Write a simple `if-else` statement in Kotlin.
+-
+-9. How do you handle nullability in Kotlin?
+-
+-10. What is a lambda function in Kotlin?
+-
+-11. How do you define a class in Kotlin?
+-
+-12. How do you use a `for` loop to iterate through a list in Kotlin?
+-
+-13. What does the `when` statement do in Kotlin?
+-
+-14. How do you check if a number is even in Kotlin?
+-
+-15. How do you declare an array in Kotlin?
+-
+----
+-
+-#### **Yes/No Questions:**
+-
+-16. Can `val` be reassigned to a new value after its initial assignment?
+-
+-17. Does Kotlin support operator overloading?
+-
+-18. Is Kotlin fully interoperable with Java?
+-
+-19. Can a function in Kotlin return a value using `return` keyword?
+-
+-20. Can Kotlin's `when` statement be used as an expression to return values?
+-
+----
+-
+-#### **Correct the Code (with Answers):**
+-
+-21. **Incorrect code:**
+-
+-    ```kotlin
+-    val x = "Hello"
+-    x = "World"
+-    ```
+-
+-22. **Incorrect code:**
+-
+-    ```kotlin
+-    fun sum(a: Int, b: Int): Int {
+-        return a + b
+-    sum(5, 10)
+-    ```
+-
+-    - **Correction**:
+-
+-    ```kotlin
+-    fun sum(a: Int, b: Int): Int {
+-        return a + b
+-    }
+-    sum(5, 10)
+-    ```
+-
+-23. **Incorrect code:**
+-
+-    ```kotlin
+-    val myList = listOf(1, 2, 3)
+-    myList.add(4)
+-    ```
+-
+-24. **Incorrect code:**
+-
+-    ```kotlin
+-    val name: String = null
+-    ```
+-
+-25. **Incorrect code:**
+-
+-    ```kotlin
+-    if x > 5 {
+-        println("x is greater than 5")
+-    }
+-    ```
+-
+-26. **Incorrect code:**
+-
+-    ```kotlin
+-    when (x) {
+-        1 -> println("One")
+-        2 -> println("Two")
+-        else println("Other")
+-    }
+-    ```
+-
+-27. **Incorrect code:**
+-
+-    ```kotlin
+-    fun greet() {
+-        println("Hello, $name)
+-    }
+-    ```
+-
+-28. **Incorrect code:**
+-
+-    ```kotlin
+-    val myVar = "10"
+-    val result = myVar + 5
+-    ```
+-
+-29. **Incorrect code:**
+-
+-    ```kotlin
+-    val numbers = arrayOf(1, 2, 3)
+-    println(numbers[3])
+-    ```
+-
+-30. **Incorrect code:**
+-    ```kotlin
+-    class Person(val name: String, val age: Int) {
+-        fun greet() {
+-            print("Hello, my name is " + name + " and I'm " + age)
+-        }
+-    }
+-    ```
+-
+----
+-
+-### **Story-based Question (with Failed Code)**
+-
+-#### **Story:**
+-
+-Imagine you are building a ticket booking system for a movie theater. Each customer can reserve a seat by providing their name and the seat number. The seat numbers are stored in an array, and the program should check if the seat is available. If available, the seat will be reserved, and if not, a message will be displayed to the user that the seat is taken.
+-
+-Here’s the failed code:
+-
+-```kotlin
+-fun reserveSeat(name: String, seatNumber: Int) {
+-    val availableSeats = arrayOf(1, 2, 3, 4, 5)
+-
+-    if (availableSeats.contains(seatNumber)) {
+-        availableSeats[seatNumber] = 0  // Mark the seat as reserved by setting it to 0
+-        println("$name reserved seat $seatNumber.")
+-    } else {
+-        println("Seat $seatNumber is already reserved.")
+-    }
+-}
+-
+-fun main() {
+-    reserveSeat("John", 2)
+-    reserveSeat("Sarah", 2)
+-}
+-```
+Index: ../exercise/day-2/day-2.2.md
+===================================================================
+diff --git a/../exercise/day-2/day-2.2.md b/../exercise/day-2/day-2.2.md
+deleted file mode 100644
+--- a/../exercise/day-2/day-2.2.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,127 +0,0 @@
+-# 1) Perpustakaan Pro — Peminjaman & Denda
+-
+-**Cerita:** Sekolah ingin sistem perpustakaan: simpan buku, data anggota, transaksi pinjam/kembali, plus denda jika telat.
+-
+-**Fokus OOP:** class/object, **data class**, **interface** (rule denda), **polymorphism** (anggota: Siswa/Guru), **object singleton** (Repo/Service), **encapsulation**.
+-
+-**Wajib pakai:**
+-
+-- `data class` untuk entitas (Buku, Anggota, Transaksi)
+-- `interface` untuk strategi denda (mis. `PenaltyRule`)
+-- `open/override` untuk beda perilaku Siswa vs Guru
+-- `object` untuk `LibraryService` (singleton)
+-- Visibility (`private`, `internal`) pada koleksi data
+-
+-**Fitur minimal:**
+-
+-1. Tambah buku & anggota.
+-2. Pinjam buku → stok berkurang; Kembali buku → stok naik.
+-3. Hitung denda berdasarkan hari telat:
+-
+-   - Siswa: Rp1.000/hari
+-   - Guru: Rp500/hari
+-
+-4. Laporan ringkas: total buku, buku terpinjam, top 3 buku paling sering dipinjam.
+-
+-**Tantangan lanjutan (pilih ≥1):**
+-
+-- Batasi max pinjaman (Siswa 3, Guru 5).
+-- Blacklist jika telat > 7 hari.
+-- Export laporan (cukup print format tabel di console).
+-
+----
+-
+-# 2) Kebun Binatang Ops — Registrasi & Jadwal Pakan
+-
+-**Cerita:** Kebun binatang butuh sistem untuk mencatat hewan, jadwal pakan, dan suara khas tiap hewan. Ada mamalia, burung, reptil—tiap kategori punya cara pakan/riwayat berbeda.
+-
+-**Fokus OOP:** **inheritance/polymorphism**, **interface** (suara/perilaku), **sealed class** (opsional untuk kategori), **encapsulation**, **companion object** (ID generator).
+-
+-**Wajib pakai:**
+-
+-- Hierarki class: `Hewan` (open/abstract) → `Mamalia`, `Burung`, `Reptil`
+-- `interface Suara { fun bunyi(): String }`
+-- Polymorphism: daftar `List<Hewan>` loop panggil metode yang di-override
+-- `companion object` untuk generator ID hewan
+-
+-**Fitur minimal:**
+-
+-1. Tambah hewan (nama, umur, kategori).
+-2. Jadwal pakan harian (jam integer) per hewan.
+-3. Cetak “parade suara” (urut ID): tampilkan `nama` + `bunyi()`.
+-4. Laporan pakan hari ini: daftar hewan & jam pakan.
+-
+-**Tantangan lanjutan (pilih ≥1):**
+-
+-- Validasi jadwal tidak bentrok (hewan yang sama).
+-- Filter laporan per kategori.
+-- Hitung konsumsi pakan total per hari (mis. mamalia 2 porsi, burung 1, reptil 0.5).
+-
+-# 3) Kasir Toko — Keranjang, Diskon, & Struk
+-
+-**Cerita:**
+-Sebuah toko ingin aplikasi kasir sederhana: catat produk, keranjang belanja, terapkan berbagai jenis diskon, dan cetak struk yang rapi.
+-
+-**Fokus OOP:** **data class** (entitas), **interface** (strategi diskon), **polymorphism** (beragam diskon), **object singleton** (Kasir/Service), **encapsulation** (koleksi item keranjang), **companion object** (opsional: generator kode struk).
+-
+-**Wajib pakai:**
+-
+-- `data class` untuk entitas: `Produk`, `ItemKeranjang`, (opsional) `Struk`.
+-- `interface Diskon { fun hitung(subtotal: Int): Int }` dengan implementasi: `TanpaDiskon`, `DiskonPersen`, `DiskonNominal`.
+-- `class Keranjang` dengan koleksi privat (`private`) untuk item & method: `tambah`, `hapus`, `totalKotor`, `totalBersih(diskon)`.
+-- `object Kasir` (singleton) untuk `checkout(keranjang, diskon)` yang mencetak struk.
+-- Visibility (`private`, `internal`) pada koleksi data/utility.
+-
+-**Fitur minimal:**
+-
+-1. Tambah/hapus produk di keranjang (merge qty jika produk sama).
+-2. Hitung subtotal, terapkan diskon, dan tampilkan **struk** (nama, qty, harga, subtotal, potongan, total).
+-3. Dua mode diskon minimal: **persen** (mis. 10%) dan **nominal** (mis. Rp20.000).
+-4. **Validasi:** total bersih tidak boleh negatif.
+-
+-**Tantangan lanjutan (pilih ≥1):**
+-
+-Diskon bertingkat (≥ 300k diskon 5%, ≥ 500k diskon 10%).
+-
+-Voucher code (mapping code → strategi diskon).
+-
+-Pajak PPN setelah diskon (mis. 11%).
+-
+----
+-
+-# 4) Klinik Sehat — Antrian Dokter, Janji Temu, & Tagihan
+-
+-**Cerita:**
+-Sebuah klinik membutuhkan sistem: daftar pasien & dokter, buat janji temu (appointment), kelola antrian per dokter, dan hitung tagihan dengan kebijakan asuransi berbeda.
+-
+-**Fokus OOP:** **class/object**, **data class** (entitas), **interface** (kebijakan pembayaran/asuransi), **polymorphism** (tipe asuransi), **object singleton** (ClinicService), **encapsulation** (koleksi & validasi), **inheritance** ringan (opsional untuk dokter spesialis/umum).
+-
+-**Wajib pakai:**
+-
+-- `data class` untuk: `Pasien`, `Dokter`, `JanjiTemu`, `Tagihan`.
+-- `interface Pembayaran { fun hitungBiaya(dasar: Int): Int }` dengan implementasi: `Tunai`, `AsuransiBPJS`, `AsuransiSwasta`.
+-- `object ClinicService` (singleton) menyimpan koleksi privat pasien/dokter/janji & menyediakan API: tambah pasien/dokter, buat janji, proses pembayaran.
+-- Encapsulation & validasi: jam janji (0–23), **tidak bentrok** untuk dokter yang sama pada jam yang sama.
+-- (Opsional) `open class Dokter` → `DokterUmum`, `DokterSpesialis` dengan biaya dasar berbeda (override via properti/method).
+-
+-**Fitur minimal:**
+-
+-1. Tambah pasien & dokter.
+-2. Buat janji temu: pilih dokter, pasien, dan jam → **tolak** jika bentrok.
+-3. Hitung biaya dasar kunjungan (mis. umum: 100k, spesialis: 200k).
+-4. Terapkan kebijakan pembayaran:
+-
+-   - `Tunai` → bayar penuh.
+-   - `AsuransiBPJS` → diskon 100% untuk jasa dokter (mis. obat tetap bayar, boleh disederhanakan nol).
+-   - `AsuransiSwasta` → diskon persentase (mis. 70% ditanggung, pasien bayar 30%).
+-
+-5. Laporan ringkas harian: total janji per dokter, total pemasukan kas, dan 3 dokter dengan janji terbanyak.
+-
+-**Tantangan lanjutan (pilih ≥1):**
+-
+-- Batas antrian per dokter per hari (mis. maksimal 10).
+-- Denda pembatalan mendadak (no-show) → tambahkan pada `Tagihan`.
+-- Export laporan ringkas (print tabel di console).
+-- (Opsional) Prioritas pasien lansia → antrean diurutkan berdasarkan prioritas.
+-
+----
+Index: ../exercise/day-1/day-1.4.md
+===================================================================
+diff --git a/../exercise/day-1/day-1.4.md b/../exercise/day-1/day-1.4.md
+deleted file mode 100644
+--- a/../exercise/day-1/day-1.4.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,45 +0,0 @@
+-# Looping di Kotlin
+-
+-### 🔹 Soal 1 — Hitung Total Nilai
+-
+-Sebuah array berisi nilai ujian siswa: `70, 85, 90, 60, 75`.
+-Buat program Kotlin untuk menghitung **total** semua nilai menggunakan loop.
+-
+----
+-
+-### 🔹 Soal 2 — Cari Angka Genap
+-
+-Ada sebuah list angka: `1, 2, 3, 4, 5, 6, 7, 8, 9, 10`.
+-Buat program Kotlin untuk mencetak hanya angka **genap** dengan `for loop` dan gunakan `continue` untuk skip angka ganjil.
+-
+----
+-
+-### 🔹 Soal 3 — Cari Buah Tertentu
+-
+-Sebuah list buah: `Apple, Banana, Mango, Orange, Grapes`.
+-Gunakan loop untuk mencari `"Mango"`.
+-
+-- Jika ketemu, cetak `"Mango ditemukan!"` lalu hentikan loop dengan `break`.
+-
+----
+-
+-### 🔹 Soal 4 — Hitung Mundur
+-
+-Buat program yang mencetak hitungan mundur dari 10 sampai 1 menggunakan `while`.
+-Setelah selesai, cetak `"Selesai!"`.
+-
+----
+-
+-### 🔹 Soal 5 — Cetak Nama dengan Index
+-
+-Sebuah list nama siswa: `Andi, Budi, Cici, Dedi`.
+-Gunakan `for loop` dengan `withIndex()` untuk mencetak nama dengan nomor urut:
+-
+-```
+-1. Andi
+-2. Budi
+-3. Cici
+-4. Dedi
+-```
+-
+--
+Index: ../exercise/day-1/day-1.5.md
+===================================================================
+diff --git a/../exercise/day-1/day-1.5.md b/../exercise/day-1/day-1.5.md
+deleted file mode 100644
+--- a/../exercise/day-1/day-1.5.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,37 +0,0 @@
+-# Function Kotlin
+-
+-### 🔹 Soal 1 — Luas Persegi Panjang
+-
+-Buat fungsi `calculateRectangleArea(length: Int, width: Int): Int` untuk menghitung luas persegi panjang.
+-Panggil fungsi ini di `main()` dengan panjang = 8 dan lebar = 5.
+-
+----
+-
+-### 🔹 Soal 2 — Bilangan Genap atau Ganjil
+-
+-Buat fungsi `checkEvenOdd(number: Int): String` yang mengembalikan `"Genap"` jika angkanya genap, `"Ganjil"` jika angkanya ganjil.
+-Panggil fungsi ini di `main()` dengan input 7.
+-
+----
+-
+-### 🔹 Soal 3 — Sapaan dengan Nama
+-
+-Buat fungsi `sayHi(name: String = "Guest")` untuk menyapa user.
+-Jika parameter tidak diberikan, tampilkan `"Hi, Guest!"`.
+-Jika diberikan, tampilkan `"Hi, <nama>!"`.
+-
+----
+-
+-### 🔹 Soal 4 — Hitung Kuadrat
+-
+-Buat fungsi `square(n: Int) = n * n` (single-expression).
+-Gunakan fungsi ini untuk menghitung kuadrat dari angka 9.
+-
+----
+-
+-### 🔹 Soal 5 — Jumlahkan List Angka
+-
+-Buat fungsi `sumList(numbers: List<Int>): Int` yang menjumlahkan semua elemen list.
+-Contoh: `[1,2,3,4,5]` → hasilnya `15`.
+-
+----
+Index: ../pretest/day-3.md
+===================================================================
+diff --git a/../pretest/day-3.md b/../pretest/day-3.md
+deleted file mode 100644
+--- a/../pretest/day-3.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,155 +0,0 @@
+-#### **Optional (Choose the correct answer):**
+-
+-1. Which of the following creates an immutable list in Kotlin?
+-
+-   - a) `arrayOf(1, 2, 3)`
+-   - b) `listOf(1, 2, 3)`
+-   - c) `mutableListOf(1, 2, 3)`
+-   - d) `setOf(1, 2, 3)`
+-
+-2. What is the purpose of a coroutine in Kotlin?
+-
+-   - a) To manage multiple threads
+-   - b) To handle asynchronous programming efficiently
+-   - c) To suspend functions indefinitely
+-   - d) To manage Android lifecycle events
+-
+-3. Which activity lifecycle method is called when the activity is visible but not yet interactive?
+-
+-   - a) `onCreate()`
+-   - b) `onResume()`
+-   - c) `onStart()`
+-   - d) `onPause()`
+-
+-4. In Android UI, which ViewGroup arranges its children in a single direction (either horizontal or vertical)?
+-
+-   - a) `RelativeLayout`
+-   - b) `ConstraintLayout`
+-   - c) `LinearLayout`
+-   - d) `FrameLayout`
+-
+-5. What keyword is used to define a suspending function in Kotlin?
+-   - a) `async`
+-   - b) `launch`
+-   - c) `suspend`
+-   - d) `defer`
+-
+----
+-
+-#### **Short Answer:**
+-
+-6. What is the difference between `listOf()` and `mutableListOf()` in Kotlin?
+-
+-7. How does `onDestroy()` differ from `onStop()` in the Android activity lifecycle?
+-
+-8. What is the advantage of using coroutines over threads in Kotlin?
+-
+-9. How can you prevent memory leaks in Android when handling configuration changes like screen rotation?
+-
+-10. Explain the difference between `View` and `ViewGroup` in Android.
+-
+-11. How does a `RecyclerView` differ from a `ListView` in Android UI components?
+-
+-12. What is the role of `onResume()` in the Android lifecycle?
+-
+-13. What is the purpose of `launch` in Kotlin coroutines?
+-
+-14. What is `LiveData` in Android, and why is it useful?
+-
+-15. What is the `ViewModel` class used for in Android?
+-
+----
+-
+-#### **Yes/No Questions:**
+-
+-16. Can `setOf()` store duplicate elements in Kotlin?
+-
+-17. Is it possible to use coroutines with Android’s lifecycle-aware components like `LiveData`?
+-
+-18. Does the Android `onCreate()` method get called every time an activity becomes visible?
+-
+-19. Can a `ConstraintLayout` position elements relative to each other in Android?
+-
+-20. Are `RecyclerView` and `SwipeRefreshLayout` both advanced Android UI components?
+-
+----
+-
+-#### **Correct the Code (with Reasons for Correction):**
+-
+-21. **Incorrect code:**
+-    ```kotlin
+-    val myList = listOf(1, 2, 3)
+-    myList.add(4)
+-    ```
+-
+----
+-
+-22. **Incorrect code:**
+-    ```kotlin
+-    fun myCoroutine() {
+-        delay(1000L)
+-        println("Coroutine executed")
+-    }
+-    ```
+-
+----
+-
+-23. **Incorrect code:**
+-    ```kotlin
+-    override fun onCreate() {
+-        super.onCreate()
+-        setContentView(R.layout.activity_main)
+-    }
+-    ```
+-
+----
+-
+-24. **Incorrect code:**
+-    ```kotlin
+-    val map = mapOf(1 to "One", 2 to "Two")
+-    map[3] = "Three"
+-    ```
+-
+----
+-
+-25. **Incorrect code:**
+-    ```kotlin
+-    val view = findViewById<Button>(R.id.button)
+-    view.setOnClickListener {
+-        Log.d("Click", "Button clicked")
+-    }
+-    ```
+-
+----
+-
+-### **Story-based Question (with Failed Code)**
+-
+-#### **Story:**
+-
+-You are developing an Android app for managing tasks. Each task has a title and a description. The app should allow users to add tasks and display the list of tasks in a `RecyclerView`. However, the app crashes when you try to display the list of tasks.
+-
+-Here’s the failed code:
+-
+-```kotlin
+-class TaskAdapter(private val taskList: List<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+-
+-    class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+-
+-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
+-        val view = LayoutInflater.from(parent.context).inflate(R.layout.task_item, parent, false)
+-        return TaskViewHolder(view)
+-    }
+-
+-    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
+-        val task = taskList[position]
+-        holder.itemView.findViewById<TextView>(R.id.taskTitle).text = task.title
+-        holder.itemView.findViewById<TextView>(R.id.taskDescription).text = task.description
+-    }
+-
+-    override fun getItemCount() = taskList.size
+-}
+-
+-data class Task(val title: String, val description: String)
+-```
+-
+----
+Index: ../exercise/day-3/day-3.1.md
+===================================================================
+diff --git a/../exercise/day-3/day-3.1.md b/../exercise/day-3/day-3.1.md
+deleted file mode 100644
+--- a/../exercise/day-3/day-3.1.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,77 +0,0 @@
+-### 1) Event Registration
+-
+-Kampusmu mengadakan **seminar besar**. Peserta harus mendaftar lewat aplikasi:
+-
+-- Di halaman utama, peserta mengisi **nama** dan **email**.
+-- Saat menekan tombol **Kirim ke Panitia**, data dikirim ke halaman panitia untuk dikonfirmasi. Panitia lalu mengirim balasan berupa pesan bahwa data sudah diterima.
+-- Peserta juga bisa menekan tombol **Lihat Profil Pendaftaran** untuk masuk ke halaman profil, yang menampilkan ringkasan nama dan email, lalu mengembalikan pesan bahwa profil sudah ditampilkan.
+-
+-**Tugas:** Buat alur tiga Activity yang bisa mengirim dan menerima data sesuai cerita di atas.
+-
+----
+-
+-### 2) Movie Night Ticketing
+-
+-Komunitas kampus mengadakan acara **nonton bareng film**. Sistem pemesanan tiket dibuat lewat aplikasi:
+-
+-- Mahasiswa memilih **judul film** dan **jam tayang** di halaman utama.
+-- Saat menekan tombol **Konfirmasi**, data dikirim ke halaman konfirmasi untuk diterbitkan **kode booking**. Kode booking ini dikembalikan ke halaman utama.
+-- Dengan kode booking itu, mahasiswa bisa membuka halaman tiket untuk melihat detail tiket yang sudah dipesan.
+-
+-**Tugas:** Buat aplikasi dengan tiga Activity yang mendukung proses pemesanan hingga tiket ditampilkan.
+-
+----
+-
+-### 3) Food Order (Quick Lunch)
+-
+-Kantin kampus menyediakan layanan **pre-order makan siang**.
+-
+-- Mahasiswa menulis **menu** dan **catatan** (misalnya “pedas” atau “tanpa sambal”).
+-- Saat menekan tombol **Cek Harga**, data dikirim ke halaman konfirmasi. Sistem menghitung harga (boleh harga tetap sederhana) lalu mengembalikan total ke halaman utama.
+-- Mahasiswa bisa lanjut membuka halaman ringkasan untuk melihat menu, catatan, dan total harga.
+-
+-**Tugas:** Buat aplikasi tiga Activity untuk mengatur alur pemesanan sederhana ini.
+-
+----
+-
+-### 4) Campus Directions (Implicit + Explicit Intents)
+-
+-Seorang mahasiswa baru ingin mencari **gedung kuliah**.
+-
+-- Di halaman utama, ia mengisi **nama gedung** beserta **koordinat (lat, lng)**.
+-- Saat menekan tombol ke halaman kedua, aplikasi menampilkan ringkasan gedung dengan tombol **Buka Peta** yang menjalankan aplikasi Maps (implicit intent). Halaman ini mengembalikan status apakah peta berhasil dibuka.
+-- Ada juga halaman ketiga yang menampilkan detail lengkap gedung, lalu mengirimkan catatan balik ke halaman utama.
+-
+-**Tugas:** Buat aplikasi tiga Activity yang memperlihatkan kombinasi intent eksplisit (antar Activity) dan intent implisit (buka Maps).
+-
+----
+-
+-### 5) Photo Notes (Camera/Picker Simulation)
+-
+-Mahasiswa ingin membuat **catatan dengan foto**.
+-
+-- Di halaman utama, user mengisi **judul catatan**, lalu menekan tombol **Tambah Foto**.
+-- Halaman kedua muncul, seolah-olah memilih foto, dan mengembalikan **URI foto palsu** (dummy string).
+-- Dengan judul dan foto itu, user bisa membuka halaman ringkasan untuk menampilkan catatan lengkap (judul + foto/URI).
+-
+-**Tugas:** Buat aplikasi tiga Activity yang mendukung alur membuat catatan dengan foto dummy.
+-
+----
+-
+-### 6) Task Manager (Status Update)
+-
+-Mahasiswa membuat aplikasi sederhana untuk **mencatat tugas harian**.
+-
+-- Di halaman utama, user menulis **judul tugas** dan memilih **prioritas** (Low/Medium/High).
+-- Di halaman kedua, user bisa menekan tombol untuk mengubah status tugas menjadi **IN_PROGRESS** atau **DONE**. Status ini dikirim balik ke halaman utama.
+-- Halaman ketiga menampilkan histori tugas lengkap: judul, prioritas, dan status terakhir.
+-
+-**Tugas:** Buat aplikasi tiga Activity yang mendukung alur pencatatan tugas ini, lengkap dengan perubahan statusnya.
+-
+----
+-
+-Team:
+-
+-1. roy, steven(1,2)
+-2. yehez, rian(3,4)
+-3. maik, varrel(5,6)
+Index: ../exercise/day-1/day-1.3.md
+===================================================================
+diff --git a/../exercise/day-1/day-1.3.md b/../exercise/day-1/day-1.3.md
+deleted file mode 100644
+--- a/../exercise/day-1/day-1.3.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,62 +0,0 @@
+-# 📝 Control Flow
+-
+-### 🔹 Soal 1: Nilai Ujian
+-
+-Seorang siswa mendapat nilai ujian.
+-
+-- Jika nilainya **≥ 90** cetak `"Nilai A"`
+-- Jika nilainya **≥ 75** cetak `"Nilai B"`
+-- Jika nilainya **≥ 60** cetak `"Nilai C"`
+-- Jika nilainya di bawah 60 cetak `"Tidak lulus"`
+-
+-> Buat program Kotlin dengan `if else` untuk menentukan kategori nilai siswa.
+-
+----
+-
+-### 🔹 Soal 2: Genap atau Ganjil
+-
+-Ali ingin tahu apakah angka yang dia input adalah **genap atau ganjil**.
+-
+-> Buat program yang menerima angka, lalu cetak `"Genap"` atau `"Ganjil"` menggunakan `if` sebagai ekspresi.
+-
+----
+-
+-### 🔹 Soal 3: Hari dalam Minggu
+-
+-Dina memberi angka dari 1–7.
+-
+-- 1 → `"Senin"`
+-- 2 → `"Selasa"`
+-- …
+-- 7 → `"Minggu"`
+-
+-Jika angka tidak ada di 1–7, cetak `"Hari tidak valid"`.
+-
+-> Gunakan `when` untuk menyelesaikan soal ini.
+-
+----
+-
+-### 🔹 Soal 4: Penilaian Huruf
+-
+-Seorang guru memberi nilai huruf pada siswa.
+-
+-- `'A'` atau `'B'` → `"Lulus dengan baik"`
+-- `'C'` → `"Lulus pas-pasan"`
+-- `'D'` atau `'E'` → `"Tidak lulus"`
+-
+-> Buat program Kotlin dengan `when` untuk mengecek hasil nilai huruf.
+-
+----
+-
+-### 🔹 Soal 5: Musim Berdasarkan Bulan
+-
+-Bulan 1–12 akan menentukan musim:
+-
+-- 12, 1, 2 → `"Musim Hujan"`
+-- 3, 4, 5 → `"Musim Semi"`
+-- 6, 7, 8 → `"Musim Panas"`
+-- 9, 10, 11 → `"Musim Gugur"`
+-
+-> Gunakan `when` sebagai ekspresi untuk menentukan musim dari sebuah bulan.
+-
+----
+Index: ../exercise/day-1/day-1.6.md
+===================================================================
+diff --git a/../exercise/day-1/day-1.6.md b/../exercise/day-1/day-1.6.md
+deleted file mode 100644
+--- a/../exercise/day-1/day-1.6.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,74 +0,0 @@
+-# Kotlin Dasar
+-
+-### 🔹 Soal 1 — Nilai Statistik
+-
+-Buat fungsi `calculateStats(numbers: List<Int>)` yang mengembalikan:
+-
+-- Total
+-- Rata-rata
+-- Nilai maksimum
+-- Nilai minimum
+-
+-> Contoh: `[70, 85, 90, 60]` → Total = 305, Rata-rata = 76.25, Max = 90, Min = 60.
+-
+----
+-
+-### 🔹 Soal 2 — Pola Segitiga Bintang
+-
+-Buat program yang mencetak pola segitiga dengan tinggi `n`.
+-
+-Contoh jika `n = 5`:
+-
+-```
+-*
+-**
+-***
+-****
+-*****
+-```
+-
+-Gunakan **nested loop** (`for` di dalam `for`).
+-
+----
+-
+-### 🔹 Soal 3 — Palindrome Checker
+-
+-Buat fungsi `isPalindrome(text: String): Boolean` yang mengecek apakah sebuah kata sama jika dibalik.
+-
+-> Contoh: `"level"` → `true`, `"kotlin"` → `false`.
+-
+----
+-
+-### 🔹 Soal 4 — Cari Angka Tertinggi Kedua
+-
+-Dari sebuah list angka, cari angka **tertinggi kedua** (second largest).
+-Jangan gunakan fungsi bawaan `sorted()` atau `max()`.
+-Gunakan loop dan kondisi manual.
+-
+-> Contoh: `[10, 30, 20, 50, 40]` → output `40`.
+-
+----
+-
+-### 🔹 Soal 5 — Jumlah Kata dalam Kalimat
+-
+-Buat fungsi `countWords(sentence: String): Int` untuk menghitung jumlah kata dalam sebuah kalimat.
+-Petunjuk: gunakan loop untuk mengecek spasi `' '`.
+-
+-> Contoh: `"Belajar Kotlin itu mudah"` → output `4`.
+-
+----
+-
+-### 🔹 Soal 6 — Matriks Penjumlahan
+-
+-Buat program untuk menjumlahkan 2 buah matriks 2D berukuran sama.
+-Gunakan **array 2 dimensi** dan **nested loop**.
+-
+-> Contoh:
+-
+-```
+-A = [[1,2,3],[4,5,6]]
+-B = [[7,8,9],[1,2,3]]
+-Hasil = [[8,10,12],[5,7,9]]
+-```
+-
+----
+Index: ../exercise/day-1/day-1.1.md
+===================================================================
+diff --git a/../exercise/day-1/day-1.1.md b/../exercise/day-1/day-1.1.md
+deleted file mode 100644
+--- a/../exercise/day-1/day-1.1.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,66 +0,0 @@
+-## Exercise: Deklarasi & Inisialisasi di Kotlin
+-
+-### 🔹 Bagian 1 — Dasar (Data Type & Print)
+-
+-1. Deklarasikan variabel `studentName` dengan tipe **String** dan inisialisasikan dengan nama kamu sendiri. Cetak hasilnya.
+-2. Deklarasikan variabel `age` dengan tipe **Int** dan isi dengan umur kamu. Cetak hasilnya.
+-3. Buat variabel `temperature` dengan tipe **Float**, isi dengan nilai suhu 36.7, lalu cetak.
+-4. Buat variabel `isGraduated` dengan tipe **Boolean**, isi dengan `false`, lalu cetak.
+-5. Deklarasikan variabel `grade` dengan tipe **Char** dan isi dengan huruf `'A'`. Cetak.
+-
+----
+-
+-### 🔹 Bagian 2 — Numeric Types
+-
+-1. Buat variabel `population` dengan tipe **Long** dan isi dengan `273_000_000`.
+-2. Buat variabel `smallNumber` dengan tipe **Short** dan isi dengan `32000`.
+-3. Buat variabel `tinyValue` dengan tipe **Byte** dan isi dengan `127`.
+-4. Cetak ketiga variabel di atas dalam satu baris menggunakan **string template**.
+-
+----
+-
+-### 🔹 Bagian 3 — Nullable
+-
+-1. Deklarasikan variabel `nickname` bertipe **String?** dan beri nilai `null`.
+-2. Setelah itu, isi `nickname` dengan nama panggilan kamu.
+-3. Cetak nilai `nickname` sebelum dan sesudah diisi.
+-
+----
+-
+-### 🔹 Bagian 4 — Array & Collection
+-
+-1. Buat array `numbers` berisi angka 1 sampai 5. Cetak semua elemen.
+-2. Buat `listOfFruits` dengan tipe **List<String>** berisi `"Apple"`, `"Banana"`, `"Mango"`. Cetak list tersebut.
+-3. Buat `mutableListOfScores` dengan tipe **MutableList<Int>**, isi dengan `80, 85, 90`. Tambahkan angka `95`, lalu cetak semua.
+-4. Buat `setOfNumbers` dengan isi `1,2,2,3,3,4`. Cetak hasilnya. Apakah ada elemen yang duplikat?
+-5. Buat `mapOfStudent` dengan isi: `"Math" to 90`, `"Science" to 85`. Cetak semua pasangan key-value.
+-
+----
+-
+-### 🔹 Bagian 5 — Mix & Match
+-
+-1. Deklarasikan variabel `city`, `year`, dan `pi` menggunakan **type inference** (tanpa menuliskan tipe datanya).
+-
+-   - `city = "Jakarta"`
+-   - `year = 2025`
+-   - `pi = 3.14159`
+-     Cetak semua nilai dalam satu baris.
+-
+-2. Buat variabel `isLoggedIn` dengan nilai `false`. Ubah nilainya menjadi `true` dan cetak sebelum & sesudah.
+-3. Buat variabel `charList` berisi huruf-huruf nama depanmu (contoh: `"K", "H", "A", "L", "I", "D"`) dalam bentuk **Array<Char>**. Cetak seluruh isi array.
+-
+----
+-
+-### 🔹 Bagian 6 — Tantangan
+-
+-1. Buat variabel `studentInfo` berupa **MutableMap<String, Any>**, dengan isi:
+-
+-   - `"name"` → nama kamu (String)
+-   - `"age"` → umur kamu (Int)
+-   - `"score"` → nilai ujian (Double)
+-     Tambahkan key `"isGraduated"` dengan nilai Boolean, lalu cetak seluruh isi map.
+-
+-2. Buat array `grades` berisi `A, B, C, D, E`. Cetak hanya nilai pertama dan terakhir.
+-3. Buat `MutableList<String>` bernama `hobbies`, isi dengan minimal 3 hobi kamu. Hapus satu hobi dari list, lalu cetak hasil akhirnya.
+-
+----
+Index: ../exercise/day-2/day-2.1.md
+===================================================================
+diff --git a/../exercise/day-2/day-2.1.md b/../exercise/day-2/day-2.1.md
+deleted file mode 100644
+--- a/../exercise/day-2/day-2.1.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,7 +0,0 @@
+-Team 1 (maik, varrel)
+-Encapsulation
+-Abstraction
+-
+-Team 2 (rian, yehez, roy )
+-Inheritance
+-Polymorphism
+Index: ../exercise/day-1/day-1.2.md
+===================================================================
+diff --git a/../exercise/day-1/day-1.2.md b/../exercise/day-1/day-1.2.md
+deleted file mode 100644
+--- a/../exercise/day-1/day-1.2.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,37 +0,0 @@
+-# 📝 Latihan Tambahan — Operator Kotlin
+-
+-## 🔹 Bagian 1 — Aritmatika
+-
+-1. Buat variabel `length = 7` dan `width = 4`. Hitung luas persegi panjang.
+-2. Buat variabel `radius = 10`. Hitung keliling lingkaran dengan rumus `2 * π * r` (gunakan `3.14` untuk π).
+-3. Hitung sisa pembagian `200 % 7`.
+-
+----
+-
+-## 🔹 Bagian 2 — Perbandingan
+-
+-1. Buat variabel `x = 100` dan `y = 200`. Cek apakah `x` lebih kecil dari `y`.
+-2. Buat variabel `temp = 36.5`. Cek apakah suhu tersebut sama dengan `37.0`.
+-3. Buat variabel `a = 50`, `b = 50`. Cek apakah keduanya sama.
+-
+----
+-
+-## 🔹 Bagian 3 — Logika
+-
+-1. Buat variabel `isSunny = true` dan `isRaining = false`. Cek apakah hari ini cerah (gunakan operator logika).
+-2. Buat variabel `hasMoney = true` dan `isStoreOpen = false`. Cek apakah bisa belanja (harus punya uang DAN toko buka).
+-3. Buat variabel `isWeekend = true` dan `isHoliday = false`. Cek apakah hari ini libur (weekend ATAU holiday).
+-
+----
+-
+-## 🔹 Bagian 4 — Assignment
+-
+-1. Buat variabel `num = 8`. Tambahkan 5, lalu kalikan 2, lalu kurangi 3, lalu bagi 5. Cetak hasil akhir.
+-2. Buat variabel `price = 1000`. Diskon 20% bisa ditulis sebagai `price -= price * 20 / 100`. Hitung harga setelah diskon.
+-
+----
+-
+-## 🔹 Bagian 5 — Increment / Decrement
+-
+-1. Buat variabel `counter = 10`. Naikkan `++` sebanyak 2 kali, lalu turunkan `--` sebanyak 3 kali. Cetak hasil akhir.
+-2. Buat variabel `points = 0`. Naikkan 5 kali dengan `++`, lalu kurangi 1 kali dengan `--`. Cetak hasil akhir.
+Index: ../notes/day-4/room.md
+===================================================================
+diff --git a/../notes/day-4/room.md b/../notes/day-4/room.md
+deleted file mode 100644
+--- a/../notes/day-4/room.md	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ /dev/null	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
+@@ -1,255 +0,0 @@
+-```
+-plugins {
+-    id 'com.android.application'
+-    id 'org.jetbrains.kotlin.android'
+-    id 'kotlin-kapt'
+-}
+-
+-dependencies {
+-    implementation "androidx.recyclerview:recyclerview:1.3.2"
+-
+-    def room_version = "2.6.1"
+-    implementation "androidx.room:room-runtime:$room_version"
+-    implementation "androidx.room:room-ktx:$room_version"
+-    kapt "androidx.room:room-compiler:$room_version"
+-}
+-
+-```
+-
+-```
+-package com.example.lifecycledemo.room
+-
+-import androidx.room.Entity
+-import androidx.room.PrimaryKey
+-
+-@Entity(tableName = "participants")
+-data class Participant(
+-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+-    val name: String,
+-    val email: String,
+-    val checkedIn: Boolean = false
+-)
+-
+-```
+-
+-```
+-
+-package com.example.lifecycledemo.room
+-
+-import androidx.room.*
+-
+-@Dao
+-interface ParticipantDao {
+-    @Query("SELECT * FROM participants ORDER BY id DESC")
+-    fun getAll(): List<Participant>
+-
+-    @Insert
+-    fun insert(p: Participant): Long
+-
+-    @Update
+-    fun update(p: Participant)
+-
+-    @Delete
+-    fun delete(p: Participant)
+-}
+-
+-```
+-
+-```
+-package com.example.lifecycledemo.room
+-
+-import android.content.Context
+-import androidx.room.Database
+-import androidx.room.Room
+-import androidx.room.RoomDatabase
+-
+-@Database(entities = [Participant::class], version = 1, exportSchema = false)
+-abstract class AppDatabase : RoomDatabase() {
+-    abstract fun participantDao(): ParticipantDao
+-
+-    companion object {
+-        @Volatile private var INSTANCE: AppDatabase? = null
+-
+-        fun get(ctx: Context): AppDatabase =
+-            INSTANCE ?: synchronized(this) {
+-                INSTANCE ?: Room.databaseBuilder(
+-                    ctx.applicationContext,
+-                    AppDatabase::class.java,
+-                    "lifecycledemo-db"
+-                )
+-                // DEMO: izinkan main thread. Produksi: pakai coroutine.
+-                .allowMainThreadQueries()
+-                .build().also { INSTANCE = it }
+-            }
+-    }
+-}
+-```
+-
+-```
+-package com.example.lifecycledemo.room
+-
+-import android.view.LayoutInflater
+-import android.view.View
+-import android.view.ViewGroup
+-import android.widget.CheckBox
+-import android.widget.ImageButton
+-import android.widget.TextView
+-import androidx.recyclerview.widget.RecyclerView
+-import com.example.lifecycledemo.R
+-
+-class ParticipantAdapter(
+-    private val items: MutableList<Participant>,
+-    private val onToggleCheckIn: (Participant) -> Unit,
+-    private val onDelete: (Participant) -> Unit
+-) : RecyclerView.Adapter<ParticipantAdapter.VH>() {
+-
+-    class VH(v: View) : RecyclerView.ViewHolder(v) {
+-        val tvName: TextView = v.findViewById(R.id.tvName)
+-        val tvEmail: TextView = v.findViewById(R.id.tvEmail)
+-        val cbCheckedIn: CheckBox = v.findViewById(R.id.cbCheckedIn)
+-        val btnDelete: ImageButton = v.findViewById(R.id.btnDelete)
+-    }
+-
+-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+-        val v = LayoutInflater.from(parent.context)
+-            .inflate(R.layout.item_participant, parent, false)
+-        return VH(v)
+-    }
+-
+-    override fun onBindViewHolder(holder: VH, position: Int) {
+-        val item = items[position]
+-        holder.tvName.text = item.name
+-        holder.tvEmail.text = item.email
+-        holder.cbCheckedIn.setOnCheckedChangeListener(null)
+-        holder.cbCheckedIn.isChecked = item.checkedIn
+-
+-        holder.cbCheckedIn.setOnCheckedChangeListener { _, isChecked ->
+-            val pos = holder.adapterPosition
+-            if (pos != RecyclerView.NO_POSITION) {
+-                onToggleCheckIn(item.copy(checkedIn = isChecked))
+-            }
+-        }
+-
+-        holder.btnDelete.setOnClickListener {
+-            val pos = holder.adapterPosition
+-            if (pos != RecyclerView.NO_POSITION) onDelete(item)
+-        }
+-    }
+-
+-    override fun getItemCount() = items.size
+-
+-    fun setData(newItems: List<Participant>) {
+-        items.clear()
+-        items.addAll(newItems)
+-        notifyDataSetChanged()
+-    }
+-}
+-
+-```
+-
+-```
+-package com.example.lifecycledemo.room
+-
+-import android.os.Bundle
+-import android.widget.Button
+-import android.widget.EditText
+-import androidx.appcompat.app.AppCompatActivity
+-import androidx.recyclerview.widget.LinearLayoutManager
+-import androidx.recyclerview.widget.RecyclerView
+-import com.example.lifecycledemo.R
+-
+-class RoomActivity : AppCompatActivity() {
+-
+-    private lateinit var dao: ParticipantDao
+-    private lateinit var adapter: ParticipantAdapter
+-
+-    override fun onCreate(savedInstanceState: Bundle?) {
+-        super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_room)
+-
+-        supportActionBar?.title = "Participants (Room)"
+-
+-        dao = AppDatabase.get(this).participantDao()
+-
+-        val etName = findViewById<EditText>(R.id.etName)
+-        val etEmail = findViewById<EditText>(R.id.etEmail)
+-        val btnAdd = findViewById<Button>(R.id.btnAdd)
+-        val rv = findViewById<RecyclerView>(R.id.rvParticipants)
+-
+-        adapter = ParticipantAdapter(
+-            items = mutableListOf(),
+-            onToggleCheckIn = { updated ->
+-                dao.update(updated)
+-                loadData()
+-            },
+-            onDelete = { del ->
+-                dao.delete(del)
+-                loadData()
+-            }
+-        )
+-
+-        rv.layoutManager = LinearLayoutManager(this)
+-        rv.adapter = adapter
+-
+-        btnAdd.setOnClickListener {
+-            val name = etName.text.toString().trim()
+-            val email = etEmail.text.toString().trim()
+-            if (name.isEmpty() || !email.contains("@")) {
+-                etName.error = if (name.isEmpty()) "Nama wajib" else null
+-                if (!email.contains("@")) etEmail.error = "Email tidak valid"
+-                return@setOnClickListener
+-            }
+-            dao.insert(Participant(name = name, email = email))
+-            etName.setText("")
+-            etEmail.setText("")
+-            loadData()
+-        }
+-
+-        loadData()
+-    }
+-
+-    private fun loadData() {
+-        val data = dao.getAll()
+-        adapter.setData(data)
+-    }
+-}
+-
+-```
+-
+-```
+-<?xml version="1.0" encoding="utf-8"?>
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:padding="16dp"
+-    android:orientation="vertical"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent">
+-
+-    <EditText
+-        android:id="@+id/etName"
+-        android:hint="Nama peserta"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"/>
+-
+-    <EditText
+-        android:id="@+id/etEmail"
+-        android:hint="Email peserta"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:layout_marginTop="8dp"/>
+-
+-    <Button
+-        android:id="@+id/btnAdd"
+-        android:text="Tambah Peserta"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:layout_marginTop="8dp"/>
+-
+-    <androidx.recyclerview.widget.RecyclerView
+-        android:id="@+id/rvParticipants"
+-        android:layout_width="match_parent"
+-        android:layout_height="0dp"
+-        android:layout_marginTop="12dp"
+-        android:layout_weight="1"/>
+-</LinearLayout>
+-
+-```
+Index: app/src/main/java/com/example/photonotes_2/ui/dashboard/DashboardViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/ui/dashboard/DashboardViewModel.kt b/app/src/main/java/com/example/photonotes_2/ui/dashboard/DashboardViewModel.kt
+new file mode 100644
+--- /dev/null	(date 1759292839475)
++++ b/app/src/main/java/com/example/photonotes_2/ui/dashboard/DashboardViewModel.kt	(date 1759292839475)
+@@ -0,0 +1,13 @@
++package com.example.photonotes_2.ui.dashboard
++
++import androidx.lifecycle.LiveData
++import androidx.lifecycle.MutableLiveData
++import androidx.lifecycle.ViewModel
++
++class DashboardViewModel : ViewModel() {
++
++    private val _text = MutableLiveData<String>().apply {
++        value = "This is dashboard Fragment"
++    }
++    val text: LiveData<String> = _text
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/photonotes_2/ui/home/HomeViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/ui/home/HomeViewModel.kt b/app/src/main/java/com/example/photonotes_2/ui/home/HomeViewModel.kt
+new file mode 100644
+--- /dev/null	(date 1759292839440)
++++ b/app/src/main/java/com/example/photonotes_2/ui/home/HomeViewModel.kt	(date 1759292839440)
+@@ -0,0 +1,13 @@
++package com.example.photonotes_2.ui.home
++
++import androidx.lifecycle.LiveData
++import androidx.lifecycle.MutableLiveData
++import androidx.lifecycle.ViewModel
++
++class HomeViewModel : ViewModel() {
++
++    private val _text = MutableLiveData<String>().apply {
++        value = "This is home Fragment"
++    }
++    val text: LiveData<String> = _text
++}
+\ No newline at end of file
+Index: ../photoNotes/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"CHOOSE_PER_TEST\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"#GRADLE_LOCAL_JAVA_HOME\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../photoNotes/.idea/gradle.xml b/../photoNotes/.idea/gradle.xml
+--- a/../photoNotes/.idea/gradle.xml	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ b/../photoNotes/.idea/gradle.xml	(date 1759285375002)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: ../photoNotes/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"jbr-21\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../photoNotes/.idea/misc.xml b/../photoNotes/.idea/misc.xml
+--- a/../photoNotes/.idea/misc.xml	(revision d8b62fa2fb691a05318d937d61d2a2ee35df3783)
++++ b/../photoNotes/.idea/misc.xml	(date 1759285375004)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK" />
+Index: app/src/main/res/drawable/ic_dashboard_black_24dp.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_dashboard_black_24dp.xml b/app/src/main/res/drawable/ic_dashboard_black_24dp.xml
+new file mode 100644
+--- /dev/null	(date 1759292840059)
++++ b/app/src/main/res/drawable/ic_dashboard_black_24dp.xml	(date 1759292840059)
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24.0"
++    android:viewportHeight="24.0">
++    <path
++        android:fillColor="#FF000000"
++        android:pathData="M3,13h8L11,3L3,3v10zM3,21h8v-6L3,15v6zM13,21h8L21,11h-8v10zM13,3v6h8L21,3h-8z" />
++</vector>
+Index: app/src/main/res/drawable/ic_home_black_24dp.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_home_black_24dp.xml b/app/src/main/res/drawable/ic_home_black_24dp.xml
+new file mode 100644
+--- /dev/null	(date 1759292840040)
++++ b/app/src/main/res/drawable/ic_home_black_24dp.xml	(date 1759292840040)
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24.0"
++    android:viewportHeight="24.0">
++    <path
++        android:fillColor="#FF000000"
++        android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z" />
++</vector>
+Index: app/src/main/java/com/example/photonotes_2/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/MainActivity.kt b/app/src/main/java/com/example/photonotes_2/MainActivity.kt
+new file mode 100644
+--- /dev/null	(date 1759303467434)
++++ b/app/src/main/java/com/example/photonotes_2/MainActivity.kt	(date 1759303467434)
+@@ -0,0 +1,64 @@
++package com.example.photonotes_2
++
++import android.content.Intent
++import android.content.SharedPreferences
++import android.os.Bundle
++import android.widget.Button
++import android.widget.EditText
++import com.google.android.material.materialswitch.MaterialSwitch
++import androidx.appcompat.app.AppCompatActivity
++
++class MainActivity : AppCompatActivity() {
++
++    private lateinit var sharedPref: SharedPreferences
++    private lateinit var etFilter: EditText
++    private lateinit var switchGrid: MaterialSwitch
++    private lateinit var btnSecond: Button
++    private lateinit var btnThird: Button
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_main)
++
++        // init SharedPreferences
++        sharedPref = getSharedPreferences("myPref", MODE_PRIVATE)
++
++        // bind view
++        etFilter = findViewById(R.id.etFilter)
++        switchGrid = findViewById(R.id.switchGrid)
++        btnSecond = findViewById(R.id.btnSecond)
++        btnThird = findViewById(R.id.btnThird)
++
++        // load preference awal
++        etFilter.setText(sharedPref.getString("FILTER_TEXT", ""))
++        switchGrid.isChecked = sharedPref.getBoolean("GRID_MODE", false)
++
++        // simpan perubahan filter text ke SP
++        etFilter.setOnEditorActionListener { v, _, _ ->
++            val text = v.text.toString()
++            sharedPref.edit().putString("FILTER_TEXT", text).apply()
++            true
++        }
++
++        // simpan perubahan grid/list toggle ke SP
++        switchGrid.setOnCheckedChangeListener { _, isChecked ->
++            sharedPref.edit().putBoolean("GRID_MODE", isChecked).apply()
++        }
++
++        // tombol ke SecondActivity
++        btnSecond.setOnClickListener {
++            val intent = Intent(this, SecondActivity::class.java)
++            startActivity(intent)
++        }
++
++        // tombol ke ThirdActivity
++        btnThird.setOnClickListener {
++            val filterText = etFilter.text.toString()
++            sharedPref.edit().putString("FILTER_TEXT", filterText).apply()
++
++            val intent = Intent(this, ThirdActivity::class.java)
++            startActivity(intent)
++        }
++
++    }
++}
+Index: app/src/main/res/drawable/ic_notifications_black_24dp.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_notifications_black_24dp.xml b/app/src/main/res/drawable/ic_notifications_black_24dp.xml
+new file mode 100644
+--- /dev/null	(date 1759292840080)
++++ b/app/src/main/res/drawable/ic_notifications_black_24dp.xml	(date 1759292840080)
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24.0"
++    android:viewportHeight="24.0">
++    <path
++        android:fillColor="#FF000000"
++        android:pathData="M12,22c1.1,0 2,-0.9 2,-2h-4c0,1.1 0.89,2 2,2zM18,16v-5c0,-3.07 -1.64,-5.64 -4.5,-6.32L13.5,4c0,-0.83 -0.67,-1.5 -1.5,-1.5s-1.5,0.67 -1.5,1.5v0.68C7.63,5.36 6,7.92 6,11v5l-2,2v1h16v-1l-2,-2z" />
++</vector>
+Index: app/src/main/java/com/example/photonotes_2/ui/notifications/NotificationsViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/ui/notifications/NotificationsViewModel.kt b/app/src/main/java/com/example/photonotes_2/ui/notifications/NotificationsViewModel.kt
+new file mode 100644
+--- /dev/null	(date 1759292839512)
++++ b/app/src/main/java/com/example/photonotes_2/ui/notifications/NotificationsViewModel.kt	(date 1759292839512)
+@@ -0,0 +1,13 @@
++package com.example.photonotes_2.ui.notifications
++
++import androidx.lifecycle.LiveData
++import androidx.lifecycle.MutableLiveData
++import androidx.lifecycle.ViewModel
++
++class NotificationsViewModel : ViewModel() {
++
++    private val _text = MutableLiveData<String>().apply {
++        value = "This is notifications Fragment"
++    }
++    val text: LiveData<String> = _text
++}
+\ No newline at end of file
+Index: app/src/main/res/values/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/dimens.xml b/app/src/main/res/values/dimens.xml
+new file mode 100644
+--- /dev/null	(date 1759292839595)
++++ b/app/src/main/res/values/dimens.xml	(date 1759292839595)
+@@ -0,0 +1,5 @@
++<resources>
++    <!-- Default screen margins, per the Android Design guidelines. -->
++    <dimen name="activity_horizontal_margin">16dp</dimen>
++    <dimen name="activity_vertical_margin">16dp</dimen>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+new file mode 100644
+--- /dev/null	(date 1759293162538)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1759293162538)
+@@ -0,0 +1,84 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/mainRoot"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="#FAFAFA"
++    tools:context=".MainActivity">
++
++    <!-- Toolbar -->
++    <com.google.android.material.appbar.MaterialToolbar
++        android:id="@+id/toolbarMain"
++        android:layout_width="0dp"
++        android:layout_height="?attr/actionBarSize"
++        android:backgroundTint="@color/purple_500"
++        android:title="Photo Notes"
++        android:titleTextColor="@android:color/white"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:titleCentered="true"/>
++
++    <!-- Text Input for Filter -->
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/filterInputLayout"
++        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:hint="Cari catatan..."
++        app:startIconDrawable="@android:drawable/ic_menu_search"
++        app:layout_constraintTop_toBottomOf="@id/toolbarMain"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toStartOf="@+id/switchGrid"
++        app:layout_constraintHorizontal_weight="1"
++        android:layout_margin="16dp">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/etFilter"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"/>
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <!-- Toggle Switch Grid/List -->
++    <com.google.android.material.materialswitch.MaterialSwitch
++        android:id="@+id/switchGrid"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Grid"
++        app:layout_constraintTop_toTopOf="@id/filterInputLayout"
++        app:layout_constraintBottom_toBottomOf="@id/filterInputLayout"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginEnd="16dp"/>
++
++    <!-- Button ke Second -->
++    <com.google.android.material.button.MaterialButton
++        android:id="@+id/btnSecond"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:text="Tambah Catatan"
++        android:icon="@android:drawable/ic_menu_add"
++        app:iconGravity="textStart"
++        app:cornerRadius="16dp"
++        app:layout_constraintTop_toBottomOf="@id/filterInputLayout"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_margin="16dp"/>
++
++    <!-- Button ke Third -->
++    <com.google.android.material.button.MaterialButton
++        android:id="@+id/btnThird"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:text="Lihat Catatan"
++        android:icon="@android:drawable/ic_menu_view"
++        app:iconGravity="textStart"
++        app:cornerRadius="16dp"
++        app:layout_constraintTop_toBottomOf="@id/btnSecond"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginHorizontal="16dp"/>
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1759292843533)
++++ b/.idea/.gitignore	(date 1759292843533)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: app/src/main/res/layout/activity_second.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_second.xml b/app/src/main/res/layout/activity_second.xml
+new file mode 100644
+--- /dev/null	(date 1759293200001)
++++ b/app/src/main/res/layout/activity_second.xml	(date 1759293200001)
+@@ -0,0 +1,85 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:padding="16dp"
++    android:background="#FFFFFF"
++    tools:context=".SecondActivity">
++
++    <!-- Toolbar -->
++    <com.google.android.material.appbar.MaterialToolbar
++        android:id="@+id/toolbarSecond"
++        android:layout_width="0dp"
++        android:layout_height="?attr/actionBarSize"
++        android:title="Tambah Catatan"
++        android:titleTextColor="@android:color/white"
++        android:backgroundTint="@color/purple_500"
++        app:titleCentered="true"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"/>
++
++    <!-- Input Judul -->
++    <com.google.android.material.textfield.TextInputLayout
++        android:id="@+id/titleInputLayout"
++        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
++        android:hint="Judul catatan"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        app:layout_constraintTop_toBottomOf="@id/toolbarSecond"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginTop="16dp">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/etTitle"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"/>
++    </com.google.android.material.textfield.TextInputLayout>
++
++    <!-- Dummy Photo Preview -->
++    <ImageView
++        android:id="@+id/ivDummyPhoto"
++        android:layout_width="200dp"
++        android:layout_height="200dp"
++        android:src="@android:drawable/ic_menu_gallery"
++        android:scaleType="centerCrop"
++        android:background="@drawable/bg_card"
++        android:contentDescription="Dummy Photo"
++        app:layout_constraintTop_toBottomOf="@id/titleInputLayout"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginTop="24dp"/>
++
++    <!-- Button Pilih Foto Dummy -->
++    <com.google.android.material.button.MaterialButton
++        android:id="@+id/btnPickPhoto"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:text="Pilih Foto Dummy"
++        app:icon="@android:drawable/ic_menu_camera"
++        app:iconGravity="textStart"
++        app:cornerRadius="16dp"
++        app:layout_constraintTop_toBottomOf="@id/ivDummyPhoto"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginTop="16dp"/>
++
++    <!-- Simpan ke Room -->
++    <com.google.android.material.button.MaterialButton
++        android:id="@+id/btnSaveNote"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:text="Simpan Catatan"
++        app:icon="@android:drawable/ic_menu_save"
++        app:iconGravity="textStart"
++        app:cornerRadius="16dp"
++        app:layout_constraintTop_toBottomOf="@id/btnPickPhoto"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginTop="16dp"/>
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/res/layout/item_note.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/item_note.xml b/app/src/main/res/layout/item_note.xml
+new file mode 100644
+--- /dev/null	(date 1759293235945)
++++ b/app/src/main/res/layout/item_note.xml	(date 1759293235945)
+@@ -0,0 +1,53 @@
++<?xml version="1.0" encoding="utf-8"?>
++<com.google.android.material.card.MaterialCardView
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    android:layout_margin="8dp"
++    app:cardCornerRadius="16dp"
++    app:cardElevation="6dp"
++    android:foreground="?android:attr/selectableItemBackground">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:padding="12dp"
++        android:gravity="center_vertical"
++        android:orientation="horizontal">
++
++        <ImageView
++            android:id="@+id/ivPhoto"
++            android:layout_width="80dp"
++            android:layout_height="80dp"
++            android:scaleType="centerCrop"
++            android:background="@drawable/bg_card"
++            android:src="@android:drawable/ic_menu_gallery"/>
++
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="12dp"
++            android:layout_weight="1"
++            android:orientation="vertical">
++
++            <TextView
++                android:id="@+id/tvTitle"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Judul Catatan"
++                android:textSize="16sp"
++                android:textStyle="bold"
++                android:textColor="#212121"/>
++
++            <TextView
++                android:id="@+id/tvDate"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="01 Okt 2025"
++                android:textSize="12sp"
++                android:textColor="#757575"/>
++        </LinearLayout>
++
++    </LinearLayout>
++</com.google.android.material.card.MaterialCardView>
+Index: app/src/main/res/layout/activity_third.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_third.xml b/app/src/main/res/layout/activity_third.xml
+new file mode 100644
+--- /dev/null	(date 1759293210144)
++++ b/app/src/main/res/layout/activity_third.xml	(date 1759293210144)
+@@ -0,0 +1,37 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="#FAFAFA"
++    tools:context=".ThirdActivity">
++
++    <!-- Toolbar -->
++    <com.google.android.material.appbar.MaterialToolbar
++        android:id="@+id/toolbarThird"
++        android:layout_width="0dp"
++        android:layout_height="?attr/actionBarSize"
++        android:backgroundTint="@color/purple_500"
++        android:title="Daftar Catatan"
++        android:titleTextColor="@android:color/white"
++        app:titleCentered="true"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"/>
++
++    <!-- RecyclerView -->
++    <androidx.recyclerview.widget.RecyclerView
++        android:id="@+id/rvNotes"
++        android:layout_width="0dp"
++        android:layout_height="0dp"
++        android:clipToPadding="false"
++        android:padding="16dp"
++        app:layout_constraintTop_toBottomOf="@id/toolbarThird"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        tools:listitem="@layout/item_note"/>
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/java/com/example/photonotes_2/room/NoteDao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/room/NoteDao.kt b/app/src/main/java/com/example/photonotes_2/room/NoteDao.kt
+new file mode 100644
+--- /dev/null	(date 1759294641217)
++++ b/app/src/main/java/com/example/photonotes_2/room/NoteDao.kt	(date 1759294641217)
+@@ -0,0 +1,19 @@
++package com.example.photonotes_2.room
++
++import android.provider.ContactsContract
++import androidx.room.Dao
++import androidx.room.Insert
++import androidx.room.Query
++
++@Dao
++interface NoteDao {
++    @Insert
++    suspend fun insert(note: Note)
++
++    @Query("SELECT * FROM note ORDER BY createdAt DESC")
++    suspend fun getAllNotes(): List<Note>
++
++    @Query("SELECT * FROM note WHERE title LIKE :filter ORDER BY createdAt DESC")
++    suspend fun getNotesFiltered(filter: String): List<Note>
++}
++
+Index: app/src/main/java/com/example/photonotes_2/ThirdActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/ThirdActivity.kt b/app/src/main/java/com/example/photonotes_2/ThirdActivity.kt
+new file mode 100644
+--- /dev/null	(date 1759301976048)
++++ b/app/src/main/java/com/example/photonotes_2/ThirdActivity.kt	(date 1759301976048)
+@@ -0,0 +1,63 @@
++package com.example.photonotes_2
++
++import android.content.SharedPreferences
++import android.os.Bundle
++import androidx.appcompat.app.AppCompatActivity
++import androidx.lifecycle.lifecycleScope
++import androidx.recyclerview.widget.GridLayoutManager
++import androidx.recyclerview.widget.LinearLayoutManager
++import androidx.recyclerview.widget.RecyclerView
++import com.example.photonotes_2.room.NoteAdapter
++import com.example.photonotes_2.room.AppDatabase
++import com.example.photonotes_2.room.Note
++import kotlinx.coroutines.launch
++
++class ThirdActivity : AppCompatActivity() {
++
++    private lateinit var rvNotes: RecyclerView
++    private lateinit var adapter: NoteAdapter
++    private lateinit var sharedPref: SharedPreferences
++    private lateinit var db: AppDatabase
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_third)
++
++        rvNotes = findViewById(R.id.rvNotes)
++        sharedPref = getSharedPreferences("myPref", MODE_PRIVATE)
++        db = AppDatabase.getDatabase(this)
++
++        adapter = NoteAdapter(listOf())
++        rvNotes.adapter = adapter
++    }
++
++    private fun loadNotes() {
++        val filterText = sharedPref.getString("FILTER_TEXT", "") ?: ""
++        val gridMode = sharedPref.getBoolean("GRID_MODE", false)
++
++        // Atur layout manager sesuai mode
++        rvNotes.layoutManager =
++            if (gridMode) GridLayoutManager(this, 2)
++            else LinearLayoutManager(this)
++
++        // Ambil data dari Room
++        lifecycleScope.launch {
++            val dao = db.noteDao()
++            val notes: List<Note> = if (filterText.isNotEmpty()) {
++                dao.getNotesFiltered("%$filterText%")
++            } else {
++                dao.getAllNotes()
++            }
++
++            runOnUiThread {
++                adapter.updateData(notes)
++            }
++        }
++    }
++
++    override fun onResume() {
++        super.onResume()
++        // refresh setiap kali activity muncul
++        loadNotes()
++    }
++}
+Index: app/src/main/java/com/example/photonotes_2/room/NoteAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/room/NoteAdapter.kt b/app/src/main/java/com/example/photonotes_2/room/NoteAdapter.kt
+new file mode 100644
+--- /dev/null	(date 1759306684718)
++++ b/app/src/main/java/com/example/photonotes_2/room/NoteAdapter.kt	(date 1759306684718)
+@@ -0,0 +1,56 @@
++package com.example.photonotes_2.room
++
++import android.view.LayoutInflater
++import android.view.View
++import android.view.ViewGroup
++import android.widget.ImageView
++import android.widget.TextView
++import androidx.recyclerview.widget.RecyclerView
++import com.example.photonotes_2.R
++import com.example.photonotes_2.room.Note
++import java.text.SimpleDateFormat
++import java.util.*
++
++class NoteAdapter(
++    private var notes: List<Note>
++) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
++
++    // ViewHolder
++    class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
++        val ivPhoto: ImageView = itemView.findViewById(R.id.ivPhoto)
++        val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
++        val tvDate: TextView = itemView.findViewById(R.id.tvDate)
++    }
++
++    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
++        val view = LayoutInflater.from(parent.context)
++            .inflate(R.layout.item_note, parent, false)
++        return NoteViewHolder(view)
++    }
++
++    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
++        val note = notes[position]
++
++        // Judul
++        holder.tvTitle.text = note.title
++
++        // Format tanggal dari createdAt (Long)
++        val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
++        holder.tvDate.text = dateFormat.format(Date(note.createdAt))
++
++        // Photo (dummy pakai resource jika kosong)
++        if (note.photoUri.isNullOrEmpty()) {
++            holder.ivPhoto.setImageResource(R.drawable.ic_launcher_foreground) // fallback
++        } else {
++            holder.ivPhoto.setImageURI(android.net.Uri.parse(note.photoUri))
++        }
++    }
++
++    override fun getItemCount(): Int = notes.size
++
++    // Untuk update data
++    fun updateData(newNotes: List<Note>) {
++        notes = newNotes
++        notifyDataSetChanged()
++    }
++}
+Index: app/src/main/java/com/example/photonotes_2/room/Note.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/room/Note.kt b/app/src/main/java/com/example/photonotes_2/room/Note.kt
+new file mode 100644
+--- /dev/null	(date 1759306684710)
++++ b/app/src/main/java/com/example/photonotes_2/room/Note.kt	(date 1759306684710)
+@@ -0,0 +1,14 @@
++package com.example.photonotes_2.room
++
++import androidx.room.Entity
++import androidx.room.PrimaryKey
++
++@Entity
++data class Note(
++    @PrimaryKey(autoGenerate = true)
++    val id: Long = 0,
++
++    val title: String,
++    val photoUri: String,
++    val createdAt: Long
++)
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle.properties b/gradle.properties
+new file mode 100644
+--- /dev/null	(date 1759292838183)
++++ b/gradle.properties	(date 1759292838183)
+@@ -0,0 +1,23 @@
++# Project-wide Gradle settings.
++# IDE (e.g. Android Studio) users:
++# Gradle settings configured through the IDE *will override*
++# any settings specified in this file.
++# For more details on how to configure your build environment visit
++# http://www.gradle.org/docs/current/userguide/build_environment.html
++# Specifies the JVM arguments used for the daemon process.
++# The setting is particularly useful for tweaking memory settings.
++org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
++# When configured, Gradle will run in incubating parallel mode.
++# This option should only be used with decoupled projects. For more details, visit
++# https://developer.android.com/r/tools/gradle-multi-project-decoupled-projects
++# org.gradle.parallel=true
++# AndroidX package structure to make it clearer which packages are bundled with the
++# Android operating system, and which are packaged with your app's APK
++# https://developer.android.com/topic/libraries/support-library/androidx-rn
++android.useAndroidX=true
++# Kotlin code style for this project: "official" or "obsolete":
++kotlin.code.style=official
++# Enables namespacing of each library's R class so that its R class includes only the
++# resources declared in the library itself and none from the library's dependencies,
++# thereby reducing the size of the R class for that library
++android.nonTransitiveRClass=true
+\ No newline at end of file
+Index: build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle.kts b/build.gradle.kts
+new file mode 100644
+--- /dev/null	(date 1759294275786)
++++ b/build.gradle.kts	(date 1759294275786)
+@@ -0,0 +1,5 @@
++// Top-level build file where you can add configuration options common to all sub-projects/modules.
++plugins {
++    alias(libs.plugins.android.application) apply false
++    alias(libs.plugins.kotlin.android) apply false
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/photonotes_2/room/AppDatabase.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/room/AppDatabase.kt b/app/src/main/java/com/example/photonotes_2/room/AppDatabase.kt
+new file mode 100644
+--- /dev/null	(date 1759295985280)
++++ b/app/src/main/java/com/example/photonotes_2/room/AppDatabase.kt	(date 1759295985280)
+@@ -0,0 +1,29 @@
++package com.example.photonotes_2.room
++
++import android.content.Context
++import androidx.room.Database
++import androidx.room.Room
++import androidx.room.RoomDatabase
++
++@Database(entities = [Note::class], version = 1, exportSchema = false)
++abstract class AppDatabase : RoomDatabase() {
++
++    abstract fun noteDao(): NoteDao
++
++    companion object {
++        @Volatile
++        private var INSTANCE: AppDatabase? = null
++
++        fun getDatabase(context: Context): AppDatabase {
++            return INSTANCE ?: synchronized(this) {
++                val instance = Room.databaseBuilder(
++                    context.applicationContext,
++                    AppDatabase::class.java,
++                    "photo_notes_db"
++                ).build()
++                INSTANCE = instance
++                instance
++            }
++        }
++    }
++}
+Index: settings.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+new file mode 100644
+--- /dev/null	(date 1759292838520)
++++ b/settings.gradle.kts	(date 1759292838520)
+@@ -0,0 +1,24 @@
++pluginManagement {
++    repositories {
++        google {
++            content {
++                includeGroupByRegex("com\\.android.*")
++                includeGroupByRegex("com\\.google.*")
++                includeGroupByRegex("androidx.*")
++            }
++        }
++        mavenCentral()
++        gradlePluginPortal()
++    }
++}
++dependencyResolutionManagement {
++    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
++    repositories {
++        google()
++        mavenCentral()
++    }
++}
++
++rootProject.name = "PhotoNotes-2"
++include(":app")
++ 
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1759292838021)
++++ b/.gitignore	(date 1759292838021)
+@@ -0,0 +1,15 @@
++*.iml
++.gradle
++/local.properties
++/.idea/caches
++/.idea/libraries
++/.idea/modules.xml
++/.idea/workspace.xml
++/.idea/navEditor.xml
++/.idea/assetWizardSettings.xml
++.DS_Store
++/build
++/captures
++.externalNativeBuild
++.cxx
++local.properties
+Index: gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+new file mode 100644
+--- /dev/null	(date 1759298754593)
++++ b/gradle/libs.versions.toml	(date 1759298754593)
+@@ -0,0 +1,40 @@
++[versions]
++agp = "8.3.2"
++kotlin = "1.9.24"
++composeCompiler = "1.5.14"
++coreKtx = "1.12.0"
++junit = "4.13.2"
++junitVersion = "1.1.5"
++espressoCore = "3.5.1"
++appcompat = "1.6.1"
++material = "1.11.0"
++constraintlayout = "2.1.4"
++lifecycleLivedataKtx = "2.6.2"
++lifecycleViewmodelKtx = "2.6.2"
++navigationFragmentKtx = "2.7.7"
++navigationUiKtx = "2.7.7"
++room = "2.6.1"
++
++[libraries]
++androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
++junit = { group = "junit", name = "junit", version.ref = "junit" }
++androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
++androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
++androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
++material = { group = "com.google.android.material", name = "material", version.ref = "material" }
++androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
++androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
++androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
++androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
++androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
++
++# Room
++androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
++androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
++androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
++
++[plugins]
++android-application = { id = "com.android.application", version.ref = "agp" }
++kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
++kotlin-kapt = { id = "org.jetbrains.kotlin.kapt" } # 🚀 tanpa version
++
+Index: gradlew.bat
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradlew.bat b/gradlew.bat
+new file mode 100644
+--- /dev/null	(date 1759292838072)
++++ b/gradlew.bat	(date 1759292838072)
+@@ -0,0 +1,89 @@
++@rem
++@rem Copyright 2015 the original author or authors.
++@rem
++@rem Licensed under the Apache License, Version 2.0 (the "License");
++@rem you may not use this file except in compliance with the License.
++@rem You may obtain a copy of the License at
++@rem
++@rem      https://www.apache.org/licenses/LICENSE-2.0
++@rem
++@rem Unless required by applicable law or agreed to in writing, software
++@rem distributed under the License is distributed on an "AS IS" BASIS,
++@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++@rem See the License for the specific language governing permissions and
++@rem limitations under the License.
++@rem
++
++@if "%DEBUG%" == "" @echo off
++@rem ##########################################################################
++@rem
++@rem  Gradle startup script for Windows
++@rem
++@rem ##########################################################################
++
++@rem Set local scope for the variables with windows NT shell
++if "%OS%"=="Windows_NT" setlocal
++
++set DIRNAME=%~dp0
++if "%DIRNAME%" == "" set DIRNAME=.
++set APP_BASE_NAME=%~n0
++set APP_HOME=%DIRNAME%
++
++@rem Resolve any "." and ".." in APP_HOME to make it shorter.
++for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
++
++@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
++
++@rem Find java.exe
++if defined JAVA_HOME goto findJavaFromJavaHome
++
++set JAVA_EXE=java.exe
++%JAVA_EXE% -version >NUL 2>&1
++if "%ERRORLEVEL%" == "0" goto execute
++
++echo.
++echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++echo.
++echo Please set the JAVA_HOME variable in your environment to match the
++echo location of your Java installation.
++
++goto fail
++
++:findJavaFromJavaHome
++set JAVA_HOME=%JAVA_HOME:"=%
++set JAVA_EXE=%JAVA_HOME%/bin/java.exe
++
++if exist "%JAVA_EXE%" goto execute
++
++echo.
++echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%
++echo.
++echo Please set the JAVA_HOME variable in your environment to match the
++echo location of your Java installation.
++
++goto fail
++
++:execute
++@rem Setup the command line
++
++set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
++
++
++@rem Execute Gradle
++"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
++
++:end
++@rem End local scope for the variables with windows NT shell
++if "%ERRORLEVEL%"=="0" goto mainEnd
++
++:fail
++rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
++rem the _cmd.exe /c_ return code!
++if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
++exit /b 1
++
++:mainEnd
++if "%OS%"=="Windows_NT" endlocal
++
++:omega
+Index: gradlew
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradlew b/gradlew
+new file mode 100644
+--- /dev/null	(date 1759292838064)
++++ b/gradlew	(date 1759292838064)
+@@ -0,0 +1,185 @@
++#!/usr/bin/env sh
++
++#
++# Copyright 2015 the original author or authors.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#      https://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++#
++
++##############################################################################
++##
++##  Gradle start up script for UN*X
++##
++##############################################################################
++
++# Attempt to set APP_HOME
++# Resolve links: $0 may be a link
++PRG="$0"
++# Need this for relative symlinks.
++while [ -h "$PRG" ] ; do
++    ls=`ls -ld "$PRG"`
++    link=`expr "$ls" : '.*-> \(.*\)$'`
++    if expr "$link" : '/.*' > /dev/null; then
++        PRG="$link"
++    else
++        PRG=`dirname "$PRG"`"/$link"
++    fi
++done
++SAVED="`pwd`"
++cd "`dirname \"$PRG\"`/" >/dev/null
++APP_HOME="`pwd -P`"
++cd "$SAVED" >/dev/null
++
++APP_NAME="Gradle"
++APP_BASE_NAME=`basename "$0"`
++
++# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
++
++# Use the maximum available, or set MAX_FD != -1 to use that value.
++MAX_FD="maximum"
++
++warn () {
++    echo "$*"
++}
++
++die () {
++    echo
++    echo "$*"
++    echo
++    exit 1
++}
++
++# OS specific support (must be 'true' or 'false').
++cygwin=false
++msys=false
++darwin=false
++nonstop=false
++case "`uname`" in
++  CYGWIN* )
++    cygwin=true
++    ;;
++  Darwin* )
++    darwin=true
++    ;;
++  MINGW* )
++    msys=true
++    ;;
++  NONSTOP* )
++    nonstop=true
++    ;;
++esac
++
++CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
++
++
++# Determine the Java command to use to start the JVM.
++if [ -n "$JAVA_HOME" ] ; then
++    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
++        # IBM's JDK on AIX uses strange locations for the executables
++        JAVACMD="$JAVA_HOME/jre/sh/java"
++    else
++        JAVACMD="$JAVA_HOME/bin/java"
++    fi
++    if [ ! -x "$JAVACMD" ] ; then
++        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++    fi
++else
++    JAVACMD="java"
++    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++fi
++
++# Increase the maximum file descriptors if we can.
++if [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then
++    MAX_FD_LIMIT=`ulimit -H -n`
++    if [ $? -eq 0 ] ; then
++        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
++            MAX_FD="$MAX_FD_LIMIT"
++        fi
++        ulimit -n $MAX_FD
++        if [ $? -ne 0 ] ; then
++            warn "Could not set maximum file descriptor limit: $MAX_FD"
++        fi
++    else
++        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
++    fi
++fi
++
++# For Darwin, add options to specify how the application appears in the dock
++if $darwin; then
++    GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
++fi
++
++# For Cygwin or MSYS, switch paths to Windows format before running java
++if [ "$cygwin" = "true" -o "$msys" = "true" ] ; then
++    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
++    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
++
++    JAVACMD=`cygpath --unix "$JAVACMD"`
++
++    # We build the pattern for arguments to be converted via cygpath
++    ROOTDIRSRAW=`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null`
++    SEP=""
++    for dir in $ROOTDIRSRAW ; do
++        ROOTDIRS="$ROOTDIRS$SEP$dir"
++        SEP="|"
++    done
++    OURCYGPATTERN="(^($ROOTDIRS))"
++    # Add a user-defined pattern to the cygpath arguments
++    if [ "$GRADLE_CYGPATTERN" != "" ] ; then
++        OURCYGPATTERN="$OURCYGPATTERN|($GRADLE_CYGPATTERN)"
++    fi
++    # Now convert the arguments - kludge to limit ourselves to /bin/sh
++    i=0
++    for arg in "$@" ; do
++        CHECK=`echo "$arg"|egrep -c "$OURCYGPATTERN" -`
++        CHECK2=`echo "$arg"|egrep -c "^-"`                                 ### Determine if an option
++
++        if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then                    ### Added a condition
++            eval `echo args$i`=`cygpath --path --ignore --mixed "$arg"`
++        else
++            eval `echo args$i`="\"$arg\""
++        fi
++        i=`expr $i + 1`
++    done
++    case $i in
++        0) set -- ;;
++        1) set -- "$args0" ;;
++        2) set -- "$args0" "$args1" ;;
++        3) set -- "$args0" "$args1" "$args2" ;;
++        4) set -- "$args0" "$args1" "$args2" "$args3" ;;
++        5) set -- "$args0" "$args1" "$args2" "$args3" "$args4" ;;
++        6) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" ;;
++        7) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" ;;
++        8) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" ;;
++        9) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" "$args8" ;;
++    esac
++fi
++
++# Escape application args
++save () {
++    for i do printf %s\\n "$i" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/' \\\\/" ; done
++    echo " "
++}
++APP_ARGS=`save "$@"`
++
++# Collect all arguments for the java command, following the shell quoting and substitution rules
++eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain "$APP_ARGS"
++
++exec "$JAVACMD" "$@"
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+new file mode 100644
+--- /dev/null	(date 1759292838199)
++++ b/gradle/wrapper/gradle-wrapper.properties	(date 1759292838199)
+@@ -0,0 +1,6 @@
++#Wed Oct 01 11:27:18 WIB 2025
++distributionBase=GRADLE_USER_HOME
++distributionPath=wrapper/dists
++distributionUrl=https\://services.gradle.org/distributions/gradle-8.13-bin.zip
++zipStoreBase=GRADLE_USER_HOME
++zipStorePath=wrapper/dists
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+new file mode 100644
+--- /dev/null	(date 1759300642321)
++++ b/app/build.gradle.kts	(date 1759300642321)
+@@ -0,0 +1,63 @@
++plugins {
++    alias(libs.plugins.android.application)
++    alias(libs.plugins.kotlin.android)
++    id("org.jetbrains.kotlin.kapt")
++}
++
++android {
++    namespace = "com.example.photonotes_2"
++    compileSdk = 36
++
++    defaultConfig {
++        applicationId = "com.example.photonotes_2"
++        minSdk = 29
++        targetSdk = 34
++        versionCode = 1
++        versionName = "1.0"
++
++        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++    }
++
++    buildTypes {
++        release {
++            isMinifyEnabled = false
++            proguardFiles(
++                getDefaultProguardFile("proguard-android-optimize.txt"),
++                "proguard-rules.pro"
++            )
++        }
++    }
++    compileOptions {
++        sourceCompatibility = JavaVersion.VERSION_11
++        targetCompatibility = JavaVersion.VERSION_11
++    }
++    kotlinOptions {
++        jvmTarget = "11"
++    }
++    buildFeatures {
++        viewBinding = true
++    }
++}
++
++dependencies {
++    implementation(libs.androidx.core.ktx)
++    implementation(libs.androidx.appcompat)
++    implementation(libs.material)
++    implementation(libs.androidx.constraintlayout)
++//    implementation(libs.androidx.lifecycle.livedata.ktx)
++//    implementation(libs.androidx.lifecycle.viewmodel.ktx)
++//    implementation(libs.androidx.navigation.fragment.ktx)
++//    implementation(libs.androidx.navigation.ui.ktx)
++    implementation("androidx.recyclerview:recyclerview:1.3.2")
++
++    // Room
++    implementation("androidx.room:room-runtime:2.6.1")
++    implementation("androidx.room:room-ktx:2.6.1")
++    kapt("androidx.room:room-compiler:2.6.1")
++    implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
++
++
++    testImplementation(libs.junit)
++    androidTestImplementation(libs.androidx.junit)
++    androidTestImplementation(libs.androidx.espresso.core)
++}
+Index: app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/.gitignore b/app/.gitignore
+new file mode 100644
+--- /dev/null	(date 1759292838266)
++++ b/app/.gitignore	(date 1759292838266)
+@@ -0,0 +1,1 @@
++/build
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+new file mode 100644
+--- /dev/null	(date 1759301170240)
++++ b/app/src/main/AndroidManifest.xml	(date 1759301170240)
+@@ -0,0 +1,37 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools">
++
++    <application
++        android:allowBackup="true"
++        android:dataExtractionRules="@xml/data_extraction_rules"
++        android:fullBackupContent="@xml/backup_rules"
++        android:icon="@mipmap/ic_launcher"
++        android:label="@string/app_name"
++        android:roundIcon="@mipmap/ic_launcher_round"
++        android:supportsRtl="true"
++        android:theme="@style/Theme.PhotoNotes2">
++
++        <!-- MainActivity langsung di root package -->
++        <activity
++            android:name=".MainActivity"
++            android:exported="true"
++            android:label="@string/app_name">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++
++        <!-- SecondActivity -->
++        <activity
++            android:name=".SecondActivity"
++            android:exported="true" />
++
++        <!-- ThirdActivity -->
++        <activity
++            android:name=".ThirdActivity"
++            android:exported="true" />
++
++    </application>
++</manifest>
+Index: app/src/test/java/com/example/photonotes_2/ExampleUnitTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/test/java/com/example/photonotes_2/ExampleUnitTest.kt b/app/src/test/java/com/example/photonotes_2/ExampleUnitTest.kt
+new file mode 100644
+--- /dev/null	(date 1759292838947)
++++ b/app/src/test/java/com/example/photonotes_2/ExampleUnitTest.kt	(date 1759292838947)
+@@ -0,0 +1,17 @@
++package com.example.photonotes_2
++
++import org.junit.Test
++
++import org.junit.Assert.*
++
++/**
++ * Example local unit test, which will execute on the development machine (host).
++ *
++ * See [testing documentation](http://d.android.com/tools/testing).
++ */
++class ExampleUnitTest {
++    @Test
++    fun addition_isCorrect() {
++        assertEquals(4, 2 + 2)
++    }
++}
+\ No newline at end of file
+Index: app/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/proguard-rules.pro b/app/proguard-rules.pro
+new file mode 100644
+--- /dev/null	(date 1759292838323)
++++ b/app/proguard-rules.pro	(date 1759292838323)
+@@ -0,0 +1,21 @@
++# Add project specific ProGuard rules here.
++# You can control the set of applied configuration files using the
++# proguardFiles setting in build.gradle.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
++
++# Uncomment this to preserve the line number information for
++# debugging stack traces.
++#-keepattributes SourceFile,LineNumberTable
++
++# If you keep the line number information, uncomment this to
++# hide the original source file name.
++#-renamesourcefileattribute SourceFile
+\ No newline at end of file
+Index: app/src/main/java/com/example/photonotes_2/SecondActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/photonotes_2/SecondActivity.kt b/app/src/main/java/com/example/photonotes_2/SecondActivity.kt
+new file mode 100644
+--- /dev/null	(date 1759306684727)
++++ b/app/src/main/java/com/example/photonotes_2/SecondActivity.kt	(date 1759306684727)
+@@ -0,0 +1,69 @@
++package com.example.photonotes_2
++
++import android.net.Uri
++import android.os.Bundle
++import android.widget.Button
++import android.widget.EditText
++import android.widget.ImageView
++import android.widget.Toast
++import androidx.activity.ComponentActivity
++import androidx.lifecycle.lifecycleScope
++import com.example.photonotes_2.R
++import com.example.photonotes_2.room.AppDatabase
++import com.example.photonotes_2.room.Note
++import kotlinx.coroutines.launch
++
++class SecondActivity : ComponentActivity() {
++
++    private lateinit var etTitle: EditText
++    private lateinit var ivDummyPhoto: ImageView
++    private lateinit var btnPickPhoto: Button
++    private lateinit var btnSaveNote: Button
++
++    private var selectedUri: String? = null // simpan URI foto dummy
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_second)
++
++        etTitle = findViewById(R.id.etTitle)
++        ivDummyPhoto = findViewById(R.id.ivDummyPhoto)
++        btnPickPhoto = findViewById(R.id.btnPickPhoto)
++        btnSaveNote = findViewById(R.id.btnSaveNote)
++
++        // Pilih foto dummy (untuk demo kita pakai 1 URI statis saja)
++        btnPickPhoto.setOnClickListener {
++            // contoh: pakai URI dari drawable
++            val uri = Uri.parse("android.resource://${packageName}/${R.drawable.ic_launcher_foreground}")
++            ivDummyPhoto.setImageURI(uri)
++            selectedUri = uri.toString()
++
++            Toast.makeText(this, "Foto dummy dipilih!", Toast.LENGTH_SHORT).show()
++        }
++
++        // Simpan ke Room
++        btnSaveNote.setOnClickListener {
++            val title = etTitle.text.toString()
++            if (title.isEmpty() || selectedUri == null) {
++                Toast.makeText(this, "Isi judul & pilih foto dulu", Toast.LENGTH_SHORT).show()
++                return@setOnClickListener
++            }
++
++            val note = Note(
++                title = title,
++                photoUri = selectedUri ?: "",
++                createdAt = System.currentTimeMillis()
++            )
++
++            lifecycleScope.launch {
++                val db = AppDatabase.getDatabase(this@SecondActivity)
++                db.noteDao().insert(note)
++
++                runOnUiThread {
++                    Toast.makeText(this@SecondActivity, "Catatan tersimpan!", Toast.LENGTH_SHORT).show()
++                    finish() // kembali ke activity sebelumnya
++                }
++            }
++        }
++    }
++}
+Index: app/src/androidTest/java/com/example/photonotes_2/ExampleInstrumentedTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/androidTest/java/com/example/photonotes_2/ExampleInstrumentedTest.kt b/app/src/androidTest/java/com/example/photonotes_2/ExampleInstrumentedTest.kt
+new file mode 100644
+--- /dev/null	(date 1759292838967)
++++ b/app/src/androidTest/java/com/example/photonotes_2/ExampleInstrumentedTest.kt	(date 1759292838967)
+@@ -0,0 +1,24 @@
++package com.example.photonotes_2
++
++import androidx.test.platform.app.InstrumentationRegistry
++import androidx.test.ext.junit.runners.AndroidJUnit4
++
++import org.junit.Test
++import org.junit.runner.RunWith
++
++import org.junit.Assert.*
++
++/**
++ * Instrumented test, which will execute on an Android device.
++ *
++ * See [testing documentation](http://d.android.com/tools/testing).
++ */
++@RunWith(AndroidJUnit4::class)
++class ExampleInstrumentedTest {
++    @Test
++    fun useAppContext() {
++        // Context of the app under test.
++        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
++        assertEquals("com.example.photonotes_2", appContext.packageName)
++    }
++}
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1759297215733)
++++ b/.idea/compiler.xml	(date 1759297215733)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="21" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/copilot.data.migration.edit.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/copilot.data.migration.edit.xml b/.idea/copilot.data.migration.edit.xml
+new file mode 100644
+--- /dev/null	(date 1759297215759)
++++ b/.idea/copilot.data.migration.edit.xml	(date 1759297215759)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="EditMigrationStateService">
++    <option name="migrationStatus" value="COMPLETED" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/copilot.data.migration.ask2agent.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/copilot.data.migration.ask2agent.xml b/.idea/copilot.data.migration.ask2agent.xml
+new file mode 100644
+--- /dev/null	(date 1759297215711)
++++ b/.idea/copilot.data.migration.ask2agent.xml	(date 1759297215711)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Ask2AgentMigrationStateService">
++    <option name="migrationStatus" value="COMPLETED" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi/ic_launcher.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi/ic_launcher.xml b/app/src/main/res/mipmap-anydpi/ic_launcher.xml
+new file mode 100644
+--- /dev/null	(date 1759292838987)
++++ b/app/src/main/res/mipmap-anydpi/ic_launcher.xml	(date 1759292838987)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: .idea/copilot.data.migration.ask.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/copilot.data.migration.ask.xml b/.idea/copilot.data.migration.ask.xml
+new file mode 100644
+--- /dev/null	(date 1759297215717)
++++ b/.idea/copilot.data.migration.ask.xml	(date 1759297215717)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AskMigrationStateService">
++    <option name="migrationStatus" value="COMPLETED" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1759297215698)
++++ b/.idea/misc.xml	(date 1759297215698)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/AndroidProjectSystem.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/AndroidProjectSystem.xml b/.idea/AndroidProjectSystem.xml
+new file mode 100644
+--- /dev/null	(date 1759297215703)
++++ b/.idea/AndroidProjectSystem.xml	(date 1759297215703)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AndroidProjectSystem">
++    <option name="providerId" value="com.android.tools.idea.GradleProjectSystem" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/copilot.data.migration.agent.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/copilot.data.migration.agent.xml b/.idea/copilot.data.migration.agent.xml
+new file mode 100644
+--- /dev/null	(date 1759297215692)
++++ b/.idea/copilot.data.migration.agent.xml	(date 1759297215692)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AgentMigrationStateService">
++    <option name="migrationStatus" value="COMPLETED" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/themes.xml b/app/src/main/res/values/themes.xml
+new file mode 100644
+--- /dev/null	(date 1759301223093)
++++ b/app/src/main/res/values/themes.xml	(date 1759301223093)
+@@ -0,0 +1,14 @@
++<resources xmlns:tools="http://schemas.android.com/tools">
++
++    <!-- Tema utama aplikasi -->
++    <style name="Theme.PhotoNotes2" parent="Theme.Material3.Light.NoActionBar">
++        <!-- Warna utama -->
++        <item name="colorPrimary">@color/purple_500</item>
++        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorOnPrimary">@android:color/white</item>
++
++        <!-- Warna background -->
++        <item name="android:windowBackground">@color/white</item>
++    </style>
++
++</resources>
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+new file mode 100644
+--- /dev/null	(date 1759292839603)
++++ b/app/src/main/res/values/strings.xml	(date 1759292839603)
+@@ -0,0 +1,6 @@
++<resources>
++    <string name="app_name">PhotoNotes-2</string>
++    <string name="title_home">Home</string>
++    <string name="title_dashboard">Dashboard</string>
++    <string name="title_notifications">Notifications</string>
++</resources>
+\ No newline at end of file
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+new file mode 100644
+--- /dev/null	(date 1759297215820)
++++ b/.idea/deploymentTargetSelector.xml	(date 1759297215820)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetSelector">
++    <selectionStates>
++      <SelectionState runConfigName="app">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++    </selectionStates>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+new file mode 100644
+--- /dev/null	(date 1759292839283)
++++ b/app/src/main/res/values/colors.xml	(date 1759292839283)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="purple_200">#FFBB86FC</color>
++    <color name="purple_500">#FF6200EE</color>
++    <color name="purple_700">#FF3700B3</color>
++    <color name="teal_200">#FF03DAC5</color>
++    <color name="teal_700">#FF018786</color>
++    <color name="black">#FF000000</color>
++    <color name="white">#FFFFFFFF</color>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_launcher_foreground.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_launcher_foreground.xml b/app/src/main/res/drawable/ic_launcher_foreground.xml
+new file mode 100644
+--- /dev/null	(date 1759292839202)
++++ b/app/src/main/res/drawable/ic_launcher_foreground.xml	(date 1759292839202)
+@@ -0,0 +1,30 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:aapt="http://schemas.android.com/aapt"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
++        <aapt:attr name="android:fillColor">
++            <gradient
++                android:endX="85.84757"
++                android:endY="92.4963"
++                android:startX="42.9492"
++                android:startY="49.59793"
++                android:type="linear">
++                <item
++                    android:color="#44000000"
++                    android:offset="0.0" />
++                <item
++                    android:color="#00000000"
++                    android:offset="1.0" />
++            </gradient>
++        </aapt:attr>
++    </path>
++    <path
++        android:fillColor="#FFFFFF"
++        android:fillType="nonZero"
++        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
++        android:strokeWidth="1"
++        android:strokeColor="#00000000" />
++</vector>
+\ No newline at end of file
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+new file mode 100644
+--- /dev/null	(date 1759297215804)
++++ b/.idea/runConfigurations.xml	(date 1759297215804)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RunConfigurationProducerService">
++    <option name="ignoredProducers">
++      <set>
++        <option value="com.intellij.execution.junit.AbstractAllInDirectoryConfigurationProducer" />
++        <option value="com.intellij.execution.junit.AllInPackageConfigurationProducer" />
++        <option value="com.intellij.execution.junit.PatternConfigurationProducer" />
++        <option value="com.intellij.execution.junit.TestInClassConfigurationProducer" />
++        <option value="com.intellij.execution.junit.UniqueIdConfigurationProducer" />
++        <option value="com.intellij.execution.junit.testDiscovery.JUnitTestDiscoveryConfigurationProducer" />
++        <option value="org.jetbrains.kotlin.idea.junit.KotlinJUnitRunConfigurationProducer" />
++        <option value="org.jetbrains.kotlin.idea.junit.KotlinPatternConfigurationProducer" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1759297215815)
++++ b/.idea/vcs.xml	(date 1759297215815)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_launcher_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_launcher_background.xml b/app/src/main/res/drawable/ic_launcher_background.xml
+new file mode 100644
+--- /dev/null	(date 1759292839179)
++++ b/app/src/main/res/drawable/ic_launcher_background.xml	(date 1759292839179)
+@@ -0,0 +1,170 @@
++<?xml version="1.0" encoding="utf-8"?>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path
++        android:fillColor="#3DDC84"
++        android:pathData="M0,0h108v108h-108z" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M9,0L9,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,0L19,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,0L29,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,0L39,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,0L49,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,0L59,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,0L69,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,0L79,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M89,0L89,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M99,0L99,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,9L108,9"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,19L108,19"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,29L108,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,39L108,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,49L108,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,59L108,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,69L108,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,79L108,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,89L108,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,99L108,99"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,29L89,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,39L89,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,49L89,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,59L89,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,69L89,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,79L89,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,19L29,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,19L39,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,19L49,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,19L59,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,19L69,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,19L79,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++</vector>
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	(date 1759297215789)
++++ b/.idea/gradle.xml	(date 1759297215789)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="testRunner" value="CHOOSE_PER_TEST" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/migrations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/migrations.xml b/.idea/migrations.xml
+new file mode 100644
+--- /dev/null	(date 1759297215797)
++++ b/.idea/migrations.xml	(date 1759297215797)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectMigrations">
++    <option name="MigrateToGradleLocalJavaHome">
++      <set>
++        <option value="$PROJECT_DIR$" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi/ic_launcher_round.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml b/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml
+new file mode 100644
+--- /dev/null	(date 1759292839219)
++++ b/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml	(date 1759292839219)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: app/src/main/res/drawable/bg_card.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/bg_card.xml b/app/src/main/res/drawable/bg_card.xml
+new file mode 100644
+--- /dev/null	(date 1759297424217)
++++ b/app/src/main/res/drawable/bg_card.xml	(date 1759297424217)
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android"
++    android:shape="rectangle">
++
++    <!-- warna dasar -->
++    <solid android:color="@android:color/white" />
++
++    <!-- sudut rounded -->
++    <corners android:radius="12dp" />
++
++    <!-- garis border tipis -->
++    <stroke
++        android:width="1dp"
++        android:color="#DDDDDD" />
++
++    <!-- padding opsional -->
++    <padding
++        android:left="4dp"
++        android:top="4dp"
++        android:right="4dp"
++        android:bottom="4dp" />
++</shape>
+Index: app/src/main/res/values-night/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values-night/themes.xml b/app/src/main/res/values-night/themes.xml
+new file mode 100644
+--- /dev/null	(date 1759292839306)
++++ b/app/src/main/res/values-night/themes.xml	(date 1759292839306)
+@@ -0,0 +1,16 @@
++<resources xmlns:tools="http://schemas.android.com/tools">
++    <!-- Base application theme. -->
++    <style name="Theme.PhotoNotes2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
++        <!-- Primary brand color. -->
++        <item name="colorPrimary">@color/purple_200</item>
++        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorOnPrimary">@color/black</item>
++        <!-- Secondary brand color. -->
++        <item name="colorSecondary">@color/teal_200</item>
++        <item name="colorSecondaryVariant">@color/teal_200</item>
++        <item name="colorOnSecondary">@color/black</item>
++        <!-- Status bar color. -->
++        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
++        <!-- Customize your theme here. -->
++    </style>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/xml/data_extraction_rules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/xml/data_extraction_rules.xml b/app/src/main/res/xml/data_extraction_rules.xml
+new file mode 100644
+--- /dev/null	(date 1759292839333)
++++ b/app/src/main/res/xml/data_extraction_rules.xml	(date 1759292839333)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?><!--
++   Sample data extraction rules file; uncomment and customize as necessary.
++   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
++   for details.
++-->
++<data-extraction-rules>
++    <cloud-backup>
++        <!-- TODO: Use <include> and <exclude> to control what is backed up.
++        <include .../>
++        <exclude .../>
++        -->
++    </cloud-backup>
++    <!--
++    <device-transfer>
++        <include .../>
++        <exclude .../>
++    </device-transfer>
++    -->
++</data-extraction-rules>
+\ No newline at end of file
+Index: app/src/main/res/xml/backup_rules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/xml/backup_rules.xml b/app/src/main/res/xml/backup_rules.xml
+new file mode 100644
+--- /dev/null	(date 1759292839320)
++++ b/app/src/main/res/xml/backup_rules.xml	(date 1759292839320)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?><!--
++   Sample backup rules file; uncomment and customize as necessary.
++   See https://developer.android.com/guide/topics/data/autobackup
++   for details.
++   Note: This file is ignored for devices older than API 31
++   See https://developer.android.com/about/versions/12/backup-restore
++-->
++<full-backup-content>
++    <!--
++   <include domain="sharedpref" path="."/>
++   <exclude domain="sharedpref" path="device.xml"/>
++-->
++</full-backup-content>
+\ No newline at end of file
