@@ -22,18 +22,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Pokeimages">
+        android:theme="@style/Theme.PokeImages">
+
+        <!-- Login jadi halaman pertama -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Pokeimages">
+            android:theme="@style/Theme.PokeImages">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Activity lain -->
+        <activity android:name=".PokemonListActivity"
+            android:theme="@style/Theme.PokeImages"/>
+        <activity android:name=".PokemonDetailActivity"
+            android:theme="@style/Theme.PokeImages"/>
+        <activity android:name=".FullscreenArtworkActivity"
+            android:theme="@style/Theme.PokeImages"/>
+        <activity android:name=".AboutActivity"
+            android:theme="@style/Theme.PokeImages"/>
+
     </application>
+
 
 </manifest>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Layer 1: Gradient dasar -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#E3F2FD"
+            android:endColor="#FFFFFF"
+            android:angle="270"/>
+        </shape>
+    </item>
+
+    <!-- Layer 2: Lingkaran dekorasi kanan bawah (kuning transparan) -->
+    <item
+        android:gravity="bottom|end">
+        <shape android:shape="oval">
+            <size
+                android:width="280dp"
+                android:height="280dp"/>
+            <!-- #33FFCC00 = transparansi 20% -->
+            <solid android:color="#18FFCC00"/>
+        </shape>
+    </item>
+
+    <!-- Layer 3: Lingkaran dekorasi kiri atas (merah transparan) -->
+    <item
+        android:gravity="top|start">
+        <shape android:shape="oval">
+            <size
+                android:width="140dp"
+                android:height="140dp"/>
+            <!-- #22E3350D = transparansi 13% -->
+            <solid android:color="#15E3350D"/>
+        </shape>
+    </item>
+
+</layer-list>
