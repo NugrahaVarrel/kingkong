@@ -96,4 +96,8 @@ dependencies {
 
     // Activity KTX (permission launcher & results)
     implementation("androidx.activity:activity-ktx:1.9.2")
+
+
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("androidx.cardview:cardview:1.0.0")
 }
