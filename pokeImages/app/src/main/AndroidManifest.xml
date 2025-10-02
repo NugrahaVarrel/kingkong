@@ -36,14 +36,14 @@
         </activity>
 
         <!-- Activity lain -->
-        <activity android:name=".PokemonListActivity"
+        <activity android:name=".PokemonActivity"
             android:theme="@style/Theme.PokeImages"/>
         <activity android:name=".PokemonDetailActivity"
             android:theme="@style/Theme.PokeImages"/>
-        <activity android:name=".FullscreenArtworkActivity"
-            android:theme="@style/Theme.PokeImages"/>
-        <activity android:name=".AboutActivity"
-            android:theme="@style/Theme.PokeImages"/>
+<!--        <activity android:name=".FullscreenArtworkActivity"-->
+<!--            android:theme="@style/Theme.PokeImages"/>-->
+<!--        <activity android:name=".AboutActivity"-->
+<!--            android:theme="@style/Theme.PokeImages"/>-->
 
     </application>
 
