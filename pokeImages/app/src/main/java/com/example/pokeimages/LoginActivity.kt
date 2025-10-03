@@ -36,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
+        val btnAbout = findViewById<Button>(R.id.btnAbout)
         resText = findViewById(R.id.tvLoginResponse)
         progress = findViewById(R.id.progressBar)
 
@@ -58,6 +59,11 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, PokemonActivity::class.java)
             startActivity(intent)
 
+        }
+
+        btnAbout.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
         }
     }
 

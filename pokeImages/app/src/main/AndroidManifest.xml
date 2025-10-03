@@ -40,6 +40,8 @@
             android:theme="@style/Theme.PokeImages"/>
         <activity android:name=".PokemonDetailActivity"
             android:theme="@style/Theme.PokeImages"/>
+        <activity android:name=".AboutActivity"
+            android:theme="@style/Theme.PokeImages"/>
 <!--        <activity android:name=".FullscreenArtworkActivity"-->
 <!--            android:theme="@style/Theme.PokeImages"/>-->
 <!--        <activity android:name=".AboutActivity"-->

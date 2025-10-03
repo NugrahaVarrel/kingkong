@@ -51,3 +51,7 @@ data class AbilityDetail(
     val name: String,
     val url: String
 )
+
+data class ActiveAPI(
+    val results : List<PokemonItem>
+)

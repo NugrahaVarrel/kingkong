@@ -1,6 +1,7 @@
 package com.example.pokeimages.network
 
 import com.example.pokeimages.data_class.AbilitiesResponse
+import com.example.pokeimages.data_class.ActiveAPI
 import com.example.pokeimages.data_class.PokemonDetail
 import com.example.pokeimages.data_class.PokemonResponse
 import retrofit2.http.GET
@@ -13,4 +14,8 @@ interface PokeApiService {
 
     @GET("pokemon/{name}")
     suspend fun getPokemonDetail(@Path("name") name: String): PokemonDetail
+
+    @GET("pokemon")
+    suspend fun getStatusAPI(@Query("limit") limit: Int = 1): ActiveAPI
+
 }
