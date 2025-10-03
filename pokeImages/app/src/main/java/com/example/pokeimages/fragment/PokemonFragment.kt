@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokeimages.R
 import com.example.pokeimages.adapter.PokemonAdapter
+import com.example.pokeimages.storage.dao.PokemonDao
+import com.example.pokeimages.storage.database.AppDatabase
 import com.example.pokeimages.vm.PokeUiState
 import com.example.pokeimages.vm.PokemonDetailViewModel
 import com.example.pokeimages.vm.PokemonViewModel
@@ -27,12 +29,15 @@ class PokemonFragment : Fragment() {
 
     private val vm: PokemonViewModel by viewModels()
     private val detailVm: PokemonDetailViewModel by activityViewModels()
+    private lateinit var dao: PokemonDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
             vm.load()
         }
+
+        dao = AppDatabase.get(requireContext()).pokemonDao()
     }
 
     override fun onCreateView(
@@ -46,7 +51,7 @@ class PokemonFragment : Fragment() {
         val progress = view.findViewById<ProgressBar>(R.id.progressFrag)
         val tvErr = view.findViewById<TextView>(R.id.tvErrorFrag)
 
-        val adapter = PokemonAdapter(mutableListOf()) { pokemon ->
+        val adapter = PokemonAdapter(mutableListOf(), dao=dao) { pokemon ->
             detailVm.setSelectedPokemon(pokemon)
 
             parentFragmentManager.beginTransaction()
