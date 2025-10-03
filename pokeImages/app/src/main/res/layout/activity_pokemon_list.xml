@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <!-- Toolbar sederhana -->
+
     <ProgressBar
         android:id="@+id/progressBarPokemonList"
         style="?android:attr/progressBarStyle"
@@ -28,29 +29,28 @@
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <EditText
-            android:id="@+id/etSearch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Cari Pokémon..."
-            android:background="@android:drawable/edit_text"
-            android:padding="10dp"
-            android:layout_weight="1"/>
+<!--        <EditText-->
+<!--            android:id="@+id/etSearch"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Cari Pokémon..."-->
+<!--            android:background="@android:drawable/edit_text"-->
+<!--            android:padding="10dp"-->
+<!--            android:layout_weight="1"/>-->
 
-        <Spinner
-            android:id="@+id/spinnerType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"/>
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerType"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"/>-->
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/pokemonContainer"
+            android:name="com.example.pokeimages.fragment.PokemonFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <!-- List -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPokemon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

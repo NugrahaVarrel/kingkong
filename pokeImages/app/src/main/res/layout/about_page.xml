@@ -6,38 +6,45 @@
     android:gravity="center_horizontal"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@mipmap/ic_launcher"/>
-
-    <TextView
-        android:id="@+id/tvAbout"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/aboutFragment"
+        android:name="com.example.pokeimages.fragment.AboutFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PokeImages adalah aplikasi untuk melihat sprite dan artwork Pokémon."
-        android:textAlignment="center"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="709dp" />
 
-    <Button
-        android:id="@+id/btnCheckConnection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cek Koneksi"
-        android:layout_marginTop="24dp"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/ivLogo"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:src="@mipmap/ic_launcher"/>-->
 
-    <TextView
-        android:id="@+id/tvConnectionStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Status: -"
-        android:layout_marginTop="12dp"/>
+<!--    <TextView-->
+<!--        android:id="@+id/tvAbout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="PokeImages adalah aplikasi untuk melihat sprite dan artwork Pokémon."-->
+<!--        android:textAlignment="center"-->
+<!--        android:layout_marginTop="16dp"/>-->
 
-    <ProgressBar
-        android:id="@+id/progressBarStatus"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+<!--    <Button-->
+<!--        android:id="@+id/btnCheckConnection"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Cek Koneksi"-->
+<!--        android:layout_marginTop="24dp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvConnectionStatus"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Status: -"-->
+<!--        android:layout_marginTop="12dp"/>-->
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/progressBarStatus"-->
+<!--        style="?android:attr/progressBarStyle"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:visibility="gone" />-->
+
 </LinearLayout>
